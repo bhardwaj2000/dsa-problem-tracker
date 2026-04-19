@@ -18,7 +18,7 @@ A comprehensive problem tracker for technical interview preparation featuring **
 
 ## 🚀 Live Demo
 
-[**Launch Tracker →**](https://yourusername.github.io/dsa-problem-tracker/)
+[**Launch Tracker →**](https://bhardwaj2000.github.io/dsa-problem-tracker/)
 
 ## 📋 Problem Coverage
 
@@ -39,7 +39,7 @@ A comprehensive problem tracker for technical interview preparation featuring **
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/dsa-problem-tracker.git
+git clone https://github.com/bhardwaj2000/dsa-problem-tracker.git
 cd dsa-problem-tracker
 
 # Install dependencies
