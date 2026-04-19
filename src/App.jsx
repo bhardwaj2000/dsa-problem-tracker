@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 const problems = [
   {id:1,name:"Merge Sorted Array",topic:"Arrays/String",difficulty:"Easy",pattern:"Two Pointers",approach:"Use two pointers from the end of both arrays and fill m+n-1 index backwards.",link:"https://leetcode.com/problems/merge-sorted-array/",solution:`// Two Pointers from end — O(m+n) time, O(1) space
@@ -1566,6 +1566,21 @@ export default function App() {
   const [selected, setSelected] = useState(null);
   const [tab, setTab] = useState("solution");
   const [showFilters, setShowFilters] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem("dsa_dark_mode");
+    return saved ? JSON.parse(saved) : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
+
+  const toggleDarkMode = () => {
+    const next = !darkMode;
+    setDarkMode(next);
+    localStorage.setItem("dsa_dark_mode", JSON.stringify(next));
+    document.documentElement.setAttribute("data-theme", next ? "dark" : "light");
+  };
+
+  useEffect(() => {
+  document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
+}, []);
 
   const updateStatus = (id, val) => {
     const next = { ...statuses, [id]: val };
@@ -1599,8 +1614,17 @@ export default function App() {
 
   return (
     <div style={{ fontFamily: "var(--font-sans)", color: "var(--color-text-primary)", maxWidth: 900, margin: "0 auto", padding: "1rem 0.5rem" }}>
-      <h2 style={{ fontSize: 20, fontWeight: 500, margin: "0 0 4px" }}>DSA Problem Tracker</h2>
-      <p style={{ fontSize: 13, color: "var(--color-text-secondary)", margin: "0 0 1rem" }}>ItsRunTym — 164 LeetCode problems</p>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 4 }}>
+        <div>
+          <h2 style={{ fontSize: 20, fontWeight: 500, margin: 0 }}>DSA Problem Tracker</h2>
+          <p style={{ fontSize: 13, color: "var(--color-text-secondary)", margin: "4px 0 0" }}>Its Learn Tym — 164 LeetCode problems</p>
+        </div>
+        <button onClick={toggleDarkMode}
+          style={{ fontSize: 20, padding: "8px 12px", borderRadius: 8, border: "0.5px solid var(--color-border-secondary)", background: "var(--color-background-secondary)", cursor: "pointer", transition: "all .2s" }}
+          title={darkMode ? "Switch to light mode" : "Switch to dark mode"}>
+          {darkMode ? "☀️" : "🌙"}
+        </button>
+      </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(130px,1fr))", gap: 10, marginBottom: 16 }}>
         {[
