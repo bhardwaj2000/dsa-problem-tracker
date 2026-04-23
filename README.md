@@ -5,6 +5,7 @@ A comprehensive problem tracker for technical interview preparation featuring **
 ![Progress Tracking](https://img.shields.io/badge/Problems-164-blue)
 ![Topics](https://img.shields.io/badge/Topics-20+-green)
 ![Patterns](https://img.shields.io/badge/Patterns-40+-orange)
+![Firebase](https://img.shields.io/badge/Firebase-Auth%20%26%20Cloud%20Sync-yellow)
 
 ## ✨ Features
 
@@ -15,6 +16,8 @@ A comprehensive problem tracker for technical interview preparation featuring **
 - 🔍 **Smart Filters** - Filter by topic, difficulty, status, and pattern
 - 📱 **Responsive Design** - Works on desktop and mobile
 - 🌙 **Dark Mode** - Automatic theme switching
+- 🔐 **Firebase Authentication** - Secure email/password login & signup
+- ☁️ **Cloud Sync** - Real-time progress sync across devices via Firestore
 
 ## 🚀 Live Demo
 
@@ -37,6 +40,26 @@ A comprehensive problem tracker for technical interview preparation featuring **
 
 ## 🛠️ Local Development
 
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- A [Firebase](https://firebase.google.com/) project with **Authentication** and **Firestore Database** enabled
+
+### Environment Variables
+Create a `.env` file in the project root and add your Firebase configuration:
+
+```env
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+
+> You can find these values in your Firebase project settings.
+
+### Run locally
+
 ```bash
 # Clone the repository
 git clone https://github.com/bhardwaj2000/dsa-problem-tracker.git
@@ -54,11 +77,12 @@ npm run build
 
 ## 📖 How to Use
 
-1. **Track Progress** - Click on any problem to expand details
-2. **Update Status** - Use dropdown to mark as Todo/In Progress/Done
-3. **View Solutions** - Toggle between Java solution and approach explanation
-4. **Filter Problems** - Use filters to focus on specific topics or patterns
-5. **Direct Links** - Click "LC →" to open problem on LeetCode
+1. **Sign In** - Log in or create an account to sync your progress across devices
+2. **Track Progress** - Click on any problem to expand details
+3. **Update Status** - Use dropdown to mark as Todo/In Progress/Done
+4. **View Solutions** - Toggle between Java solution and approach explanation
+5. **Filter Problems** - Use filters to focus on specific topics or patterns
+6. **Direct Links** - Click "LC →" to open problem on LeetCode
 
 ## 🎨 Patterns Covered
 
@@ -72,7 +96,7 @@ npm run build
 
 ## 💾 Data Persistence
 
-Your progress is automatically saved to browser's localStorage. Clear browser data to reset.
+Your progress is automatically synchronized to **Firebase Firestore** in real-time, so you can access your data from any device. An authentication layer ensures your data stays private and secure.
 
 ## 🤝 Contributing
 
@@ -88,4 +112,4 @@ MIT License - feel free to use for your interview prep!
 
 ---
 
-Built with ⚛️ React + ⚡ Vite | Made for interview success 🚀
+Built with ⚛️ React + ⚡ Vite + 🔥 Firebase | Made for interview success 🚀
