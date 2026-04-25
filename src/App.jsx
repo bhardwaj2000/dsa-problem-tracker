@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate, Link, useMatch } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, Link, useMatch, useNavigate } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
 import Login from './components/Login';
 import DSAPage from './pages/DSAPage';
@@ -8,6 +8,7 @@ import InterviewPage from './pages/InterviewPage';
 
 function AppContent() {
   const { currentUser, logout } = useAuth();
+  const navigate = useNavigate();
   const isInterviewPage = useMatch('/interview') !== null;
   const [darkMode, setDarkMode] = useState(() => {
     const saved = localStorage.getItem("dsa_dark_mode");
@@ -57,7 +58,7 @@ function AppContent() {
                 title={darkMode ? "Switch to light mode" : "Switch to dark mode"}>
                 {darkMode ? "☀️" : "🌙"}
               </button>
-              <button onClick={logout}
+              <button onClick={async () => { await logout(); navigate('/', { replace: true }); }}
                 style={{ fontSize: 13, padding: "8px 16px", borderRadius: 8, border: "0.5px solid var(--color-border-secondary)", background: "var(--color-background-secondary)", color: "var(--color-text-primary)", cursor: "pointer", transition: "all .2s" }}>
                 Logout
               </button>
