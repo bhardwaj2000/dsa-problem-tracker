@@ -3,6 +3,7 @@ import { useInterviewQuestions } from '../hooks/useInterviewQuestions';
 import QuestionCard from '../components/interview/QuestionCard';
 import AddQuestionModal from '../components/interview/AddQuestionModal';
 import TopicFilter from '../components/interview/TopicFilter';
+import Chatbot from '../components/chatbot/Chatbot';
 
 export default function InterviewPage() {
   const {
@@ -93,7 +94,7 @@ export default function InterviewPage() {
           <div style={{ fontSize: 12, color: 'var(--color-text-secondary)', marginBottom: 2 }}>Total Questions</div>
           <div style={{ fontSize: 24, fontWeight: 500, color: 'var(--color-text-primary)' }}>{stats.total}</div>
         </div>
-        
+
         <div style={{ background: 'var(--color-background-secondary)', borderRadius: 8, padding: '12px 14px' }}>
           <div style={{ fontSize: 12, color: 'var(--color-text-secondary)', marginBottom: 2 }}>Starred</div>
           <div style={{ fontSize: 24, fontWeight: 500, color: '#fbbf24' }}>{stats.starred}</div>
@@ -251,6 +252,9 @@ export default function InterviewPage() {
           onSubmit={addQuestion}
         />
       )}
+
+      {/* AI Chatbot Assistant */}
+      <Chatbot onAddQuestion={addQuestion} />
     </div>
   );
 }
