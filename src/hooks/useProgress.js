@@ -3,11 +3,13 @@ import { doc, getDoc, setDoc, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 
-export function useProgress() {
+
+
+export function useProgress(problems = []) {
   const { currentUser } = useAuth();
   const [statuses, setStatuses] = useState({});
   const [stats, setStats] = useState({
-    total: 164,
+    total: problems.length,
     done: 0,
     inProgress: 0,
     easyDone: 0,
@@ -23,7 +25,7 @@ export function useProgress() {
     }
 
     const progressRef = doc(db, 'users', currentUser.uid, 'progress', 'stats');
-    
+
     // Real-time listener
     const unsubscribe = onSnapshot(progressRef, (doc) => {
       if (doc.exists()) {
@@ -47,29 +49,47 @@ export function useProgress() {
   const updateStatus = async (problemId, newStatus, difficulty) => {
     if (!currentUser) return;
 
+    const oldStatus = statuses[problemId];
     const newStatuses = { ...statuses, [problemId]: newStatus };
-    
-    // Calculate new stats
-    const allProblems = Object.values(newStatuses);
-    const done = allProblems.filter(s => s === "Done").length;
-    const inProgress = allProblems.filter(s => s === "In Progress").length;
-    
-    // Calculate difficulty-specific stats (you'll need problem data here)
-    // For now, simplified:
+
+    // Incremental stat updates (more reliable than full recalculation)
+    let doneDelta = 0;
+    let inProgressDelta = 0;
+    let easyDelta = 0;
+    let mediumDelta = 0;
+    let hardDelta = 0;
+
+    if (oldStatus === "Done") doneDelta--;
+    if (oldStatus === "In Progress") inProgressDelta--;
+    if (newStatus === "Done") doneDelta++;
+    if (newStatus === "In Progress") inProgressDelta++;
+
+    if (oldStatus === "Done") {
+      if (difficulty === "Easy") easyDelta--;
+      else if (difficulty === "Medium") mediumDelta--;
+      else if (difficulty === "Hard") hardDelta--;
+    }
+    if (newStatus === "Done") {
+      if (difficulty === "Easy") easyDelta++;
+      else if (difficulty === "Medium") mediumDelta++;
+      else if (difficulty === "Hard") hardDelta++;
+    }
+
     const newStats = {
-      total: 164,
-      done,
-      inProgress,
-      easyDone: stats.easyDone, // Update based on difficulty
-      mediumDone: stats.mediumDone,
-      hardDone: stats.hardDone,
+      total: problems.length,
+      done: stats.done + doneDelta,
+      inProgress: stats.inProgress + inProgressDelta,
+      easyDone: stats.easyDone + easyDelta,
+      mediumDone: stats.mediumDone + mediumDelta,
+      hardDone: stats.hardDone + hardDelta,
       problemStatuses: newStatuses,
       lastUpdated: new Date()
     };
 
     // Update locally first (optimistic update)
     setStatuses(newStatuses);
-    
+    setStats(newStats);
+
     // Update Firestore
     const progressRef = doc(db, 'users', currentUser.uid, 'progress', 'stats');
     await setDoc(progressRef, newStats);
