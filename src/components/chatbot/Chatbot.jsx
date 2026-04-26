@@ -5,14 +5,15 @@ import ChatMessage from './ChatMessage';
 import AddQuestionModal from '../interview/AddQuestionModal';
 
 const AVAILABLE_MODELS = [
-  { value: 'gemini-3.1-flash-lite-preview', label: 'Gemini 3.1 Flash Lite' },
   { value: 'gemma-3-27b-it', label: 'Gemma 3 27B' },
-  { value: 'gemma-4-31b-it', label: 'Gemma 4 31B' },
+  { value: '', label: 'Default (Worker)' },
+  { value: 'gemini-3.1-flash-lite-preview', label: 'Gemini 3.1 Flash' },
+  { value: 'gemma-4-31b-it', label: 'Gemma 4 31B' }
 ];
 
 export default function Chatbot({ onAddQuestion }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedModel, setSelectedModel] = useState('gemini-3.1-flash-lite-preview');
+  const [selectedModel, setSelectedModel] = useState('');
   const [messages, setMessages] = useState([
     {
       text: 'Hello! I am your Interview Prep Assistant. Ask me anything about **Java**, **Spring Boot**, or **React** interview topics.',

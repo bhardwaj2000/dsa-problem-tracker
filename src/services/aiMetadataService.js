@@ -1,13 +1,9 @@
 /**
  * AI Metadata Service for Interview Prep Chatbot
- * Calls Gemini to auto-generate question metadata (topic, difficulty, tags)
+ * Calls Cloudflare Worker proxy to auto-generate question metadata (topic, difficulty, tags)
  */
 
-const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-
-function getGeminiApiUrl(modelName) {
-  return `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`;
-}
+const PROXY_URL = 'https://gemini-proxy.manish1710.workers.dev';
 
 const ALLOWED_TOPICS = ['Java', 'Spring', 'Database', 'Kafka', 'CICD', 'ReactJS', 'AI', 'Tricky'];
 const ALLOWED_DIFFICULTIES = ['Easy', 'Medium', 'Hard'];
@@ -85,7 +81,6 @@ function sanitizeMetadata(raw) {
   if (ALLOWED_TOPICS.includes(raw.topic)) {
     metadata.topic = raw.topic;
   } else if (typeof raw.topic === 'string') {
-    // Try case-insensitive match
     const matched = ALLOWED_TOPICS.find(
       (t) => t.toLowerCase() === raw.topic.toLowerCase()
     );
@@ -112,48 +107,33 @@ function sanitizeMetadata(raw) {
 }
 
 /**
- * Generate question metadata using Gemini AI
+ * Generate question metadata using Gemini AI via Cloudflare proxy
  * @param {string} userQuestion - The original question asked by user
  * @param {string} botAnswer - The answer provided by the chatbot
  * @param {string} modelName - Gemini model to use
  * @returns {Promise<{refinedQuestion: string, topic: string, difficulty: string, tags: string[]}>}
  */
 export async function generateQuestionMetadata(userQuestion, botAnswer, modelName = 'gemini-3.1-flash-lite-preview') {
-  if (!GEMINI_API_KEY || GEMINI_API_KEY === 'your_gemini_api_key_here') {
-    throw new Error('Gemini API key is not configured.');
-  }
-
   try {
-    const response = await fetch(
-      `${getGeminiApiUrl(modelName)}?key=${GEMINI_API_KEY}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [
-                {
-                  text: buildMetadataPrompt(userQuestion, botAnswer),
-                },
-              ],
-            },
-          ],
-          generationConfig: {
-            maxOutputTokens: 400,
-            temperature: 0.1,
-            responseMimeType: 'application/json',
-          },
-        }),
-      }
-    );
+    const requestBody = {
+      query: buildMetadataPrompt(userQuestion, botAnswer),
+    };
+    if (modelName) {
+      requestBody.model = modelName;
+    }
+
+    const response = await fetch(PROXY_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    });
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       const errorMsg =
-        errorData?.error?.message || `API request failed with status ${response.status}`;
+        errorData?.error?.message || `Proxy request failed with status ${response.status}`;
       throw new Error(errorMsg);
     }
 

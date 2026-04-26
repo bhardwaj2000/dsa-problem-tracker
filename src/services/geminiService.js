@@ -1,13 +1,9 @@
 /**
  * Gemini API Service for Interview Prep Chatbot
- * Handles keyword filtering and API calls to Google's Gemini
+ * Calls Cloudflare Worker proxy to keep API key hidden
  */
 
-const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-
-function getGeminiApiUrl(modelName) {
-  return `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`;
-}
+const PROXY_URL = 'https://gemini-proxy.manish1710.workers.dev';
 
 // Allowed topics for the chatbot
 const ALLOWED_KEYWORDS = [
@@ -157,7 +153,7 @@ Question: ${userQuery}`;
 }
 
 /**
- * Call Gemini API with the user query
+ * Call Gemini API via Cloudflare Worker proxy
  */
 export async function sendMessageToGemini(userQuery, modelName = 'gemini-3.1-flash-lite-preview') {
   // Step 1: Keyword filtering
@@ -169,45 +165,26 @@ export async function sendMessageToGemini(userQuery, modelName = 'gemini-3.1-fla
     };
   }
 
-  // Step 2: Validate API key
-  if (!GEMINI_API_KEY || GEMINI_API_KEY === 'your_gemini_api_key_here') {
-    return {
-      ok: false,
-      text: 'Gemini API key is not configured. Please add your API key to the .env file.',
-      fromBot: true,
-    };
-  }
-
   try {
-    const response = await fetch(
-      `${getGeminiApiUrl(modelName)}?key=${GEMINI_API_KEY}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [
-                {
-                  text: buildPrompt(userQuery),
-                },
-              ],
-            },
-          ],
-          generationConfig: {
-            maxOutputTokens: 800,
-            temperature: 0.3,
-          },
-        }),
-      }
-    );
+    const requestBody = {
+      query: buildPrompt(userQuery),
+    };
+    if (modelName) {
+      requestBody.model = modelName;
+    }
+
+    const response = await fetch(PROXY_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    });
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       const errorMsg =
-        errorData?.error?.message || `API request failed with status ${response.status}`;
+        errorData?.error?.message || `Proxy request failed with status ${response.status}`;
       throw new Error(errorMsg);
     }
 
