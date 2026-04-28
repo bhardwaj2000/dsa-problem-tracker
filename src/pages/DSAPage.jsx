@@ -1713,6 +1713,23 @@ const diffColor = { Easy: "#22c55e", Medium: "#f59e0b", Hard: "#ef4444" };
 const statusColor = { "Todo": "#6b7280", "In Progress": "#3b82f6", "Done": "#22c55e" };
 const statusBg = { "Todo": "#f3f4f6", "In Progress": "#eff6ff", "Done": "#f0fdf4" };
 
+function getYoutubeEmbedUrl(url) {
+  if (!url) return null;
+  try {
+    const u = new URL(url);
+    if (u.pathname.startsWith('/embed/')) return url;
+    const v = u.searchParams.get('v');
+    if (v) return `https://www.youtube.com/embed/${v}`;
+    const list = u.searchParams.get('list');
+    if (list) return `https://www.youtube.com/embed/videoseries?list=${list}`;
+    if (u.hostname === 'youtu.be') {
+      const id = u.pathname.slice(1);
+      if (id) return `https://www.youtube.com/embed/${id}`;
+    }
+  } catch (e) { }
+  return url;
+}
+
 export default function DSAPage() {
   const { statuses, stats, updateStatus, loading } = useProgress(problems);
   const [filters, setFilters] = useState({ topic: "All", difficulty: "All", status: "All", pattern: "All", search: "" });
@@ -1837,25 +1854,18 @@ export default function DSAPage() {
                 <div style={{ marginTop: 12, borderTop: "0.5px solid var(--color-border-tertiary)", paddingTop: 12 }}
                   onClick={e => e.stopPropagation()}>
                   <div style={{ display: "flex", gap: 8, marginBottom: 10, flexWrap: "wrap" }}>
-                    {["solution", "approach"].map(t => (
+                    {["solution", "approach", ...(p.video ? ["video"] : [])].map(t => (
                       <button key={t} onClick={() => setTab(t)}
                         style={{ fontSize: 12, padding: "4px 12px", borderRadius: 7, border: "0.5px solid var(--color-border-secondary)", background: tab === t ? "#3b82f6" : "var(--color-background-secondary)", color: tab === t ? "#fff" : "var(--color-text-primary)", cursor: "pointer", fontWeight: tab === t ? 500 : 400 }}>
-                        {t === "solution" ? "Java Solution" : "Approach & Pattern"}
+                        {t === "solution" ? "Java Solution" : t === "approach" ? "Approach & Pattern" : "Video Solution"}
                       </button>
                     ))}
-                    {p.video && (
-                      <a href={p.video} target="_blank" rel="noopener noreferrer"
-                        onClick={e => e.stopPropagation()}
-                        style={{ fontSize: 12, padding: "4px 12px", borderRadius: 7, border: "0.5px solid var(--color-border-secondary)", background: "var(--color-background-secondary)", color: "var(--color-text-primary)", cursor: "pointer", fontWeight: 400, textDecoration: "none", display: "inline-flex", alignItems: "center" }}>
-                        Video Solution
-                      </a>
-                    )}
                   </div>
                   {tab === "solution" ? (
                     <pre style={{ margin: 0, fontSize: 12, lineHeight: 1.6, background: "var(--color-background-secondary)", borderRadius: 8, padding: 14, overflowX: "auto", fontFamily: "var(--font-mono)", color: "var(--color-text-primary)", whiteSpace: "pre-wrap", wordBreak: "break-word" }}>
                       {p.solution}
                     </pre>
-                  ) : (
+                  ) : tab === "approach" ? (
                     <div style={{ fontSize: 13, lineHeight: 1.7 }}>
                       <div style={{ marginBottom: 8 }}>
                         <span style={{ fontWeight: 500, color: "var(--color-text-secondary)", fontSize: 11, textTransform: "uppercase", letterSpacing: 1 }}>Pattern</span>
@@ -1867,6 +1877,15 @@ export default function DSAPage() {
                         <span style={{ fontWeight: 500, color: "var(--color-text-secondary)", fontSize: 11, textTransform: "uppercase", letterSpacing: 1 }}>Approach</span>
                         <div style={{ marginTop: 4, color: "var(--color-text-primary)", fontSize: 13 }}>{p.approach}</div>
                       </div>
+                    </div>
+                  ) : (
+                    <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: 8, background: '#000' }}>
+                      <iframe
+                        src={getYoutubeEmbedUrl(p.video)}
+                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
                     </div>
                   )}
                 </div>
