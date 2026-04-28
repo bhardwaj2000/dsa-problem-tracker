@@ -4,7 +4,7 @@ import { useProgress } from '../hooks/useProgress';
 // Import the problems array from your App.jsx
 const problems = [
   {
-    id: 1, name: "Merge Sorted Array", topic: "Arrays/String", difficulty: "Easy", pattern: "Two Pointers", approach: "Use two pointers from the end of both arrays and fill m+n-1 index backwards.", link: "https://leetcode.com/problems/merge-sorted-array/", solution: `// Two Pointers from end — O(m+n) time, O(1) space
+    id: 1, name: "Merge Sorted Array", topic: "Arrays/String", difficulty: "Easy", pattern: "Two Pointers", approach: "Use two pointers from the end of both arrays and fill m+n-1 index backwards.", link: "https://leetcode.com/problems/merge-sorted-array/", video: "https://www.youtube.com/watch?v=Eb1ZPmGfxyY", solution: `// Two Pointers from end — O(m+n) time, O(1) space
 public void merge(int[] nums1, int m, int[] nums2, int n) {
     int i = m-1, j = n-1, k = m+n-1;
     while (i >= 0 && j >= 0)
@@ -12,27 +12,27 @@ public void merge(int[] nums1, int m, int[] nums2, int n) {
     while (j >= 0) nums1[k--] = nums2[j--];
 }`},
   {
-    id: 2, name: "Remove Element", topic: "Arrays/String", difficulty: "Easy", pattern: "Two Pointers", approach: "Use a slow pointer to overwrite elements equal to val.", link: "https://leetcode.com/problems/remove-element/", solution: `public int removeElement(int[] nums, int val) {
+    id: 2, name: "Remove Element", topic: "Arrays/String", difficulty: "Easy", pattern: "Two Pointers", approach: "Use a slow pointer to overwrite elements equal to val.", link: "https://leetcode.com/problems/remove-element/", video: "https://www.youtube.com/watch?v=Eb1ZPmGfxyY", solution: `public int removeElement(int[] nums, int val) {
     int k = 0;
     for (int n : nums) if (n != val) nums[k++] = n;
     return k;
 }`},
   {
-    id: 3, name: "Remove Duplicates from Sorted Array", topic: "Arrays/String", difficulty: "Easy", pattern: "Two Pointers", approach: "Slow pointer tracks unique position; fast pointer scans ahead.", link: "https://leetcode.com/problems/remove-duplicates-from-sorted-array/", solution: `public int removeDuplicates(int[] nums) {
+    id: 3, name: "Remove Duplicates from Sorted Array", topic: "Arrays/String", difficulty: "Easy", pattern: "Two Pointers", approach: "Slow pointer tracks unique position; fast pointer scans ahead.", link: "https://leetcode.com/problems/remove-duplicates-from-sorted-array/", video: "https://www.youtube.com/watch?v=agu22l0GLmg", solution: `public int removeDuplicates(int[] nums) {
     int k = 1;
     for (int i = 1; i < nums.length; i++)
         if (nums[i] != nums[i-1]) nums[k++] = nums[i];
     return k;
 }`},
   {
-    id: 4, name: "Remove Duplicates from Sorted Array II", topic: "Arrays/String", difficulty: "Medium", pattern: "Two Pointers", approach: "Allow at most 2 duplicates by comparing current with nums[k-2].", link: "https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/", solution: `public int removeDuplicates(int[] nums) {
+    id: 4, name: "Remove Duplicates from Sorted Array II", topic: "Arrays/String", difficulty: "Medium", pattern: "Two Pointers", approach: "Allow at most 2 duplicates by comparing current with nums[k-2].", link: "https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/", video: "https://www.youtube.com/watch?v=agu22l0GLmg", solution: `public int removeDuplicates(int[] nums) {
     int k = 0;
     for (int n : nums)
         if (k < 2 || nums[k-2] != n) nums[k++] = n;
     return k;
 }`},
   {
-    id: 5, name: "Majority Element", topic: "Arrays/String", difficulty: "Easy", pattern: "Boyer-Moore Voting", approach: "Candidate + count; majority element always survives cancellation.", link: "https://leetcode.com/problems/majority-element/", solution: `public int majorityElement(int[] nums) {
+    id: 5, name: "Majority Element", topic: "Arrays/String", difficulty: "Easy", pattern: "Boyer-Moore Voting", approach: "Candidate + count; majority element always survives cancellation.", link: "https://leetcode.com/problems/majority-element/", video: "https://www.youtube.com/watch?v=CBEpJtDScMo", solution: `public int majorityElement(int[] nums) {
     int cand = nums[0], cnt = 1;
     for (int i = 1; i < nums.length; i++) {
         if (cnt == 0) { cand = nums[i]; cnt = 1; }
@@ -41,7 +41,7 @@ public void merge(int[] nums1, int m, int[] nums2, int n) {
     return cand;
 }`},
   {
-    id: 6, name: "Rotate Array", topic: "Arrays/String", difficulty: "Medium", pattern: "Reverse", approach: "Reverse full array, then reverse [0,k-1] and [k,n-1].", link: "https://leetcode.com/problems/rotate-array/", solution: `public void rotate(int[] nums, int k) {
+    id: 6, name: "Rotate Array", topic: "Arrays/String", difficulty: "Medium", pattern: "Reverse", approach: "Reverse full array, then reverse [0,k-1] and [k,n-1].", link: "https://leetcode.com/problems/rotate-array/", video: "https://www.youtube.com/watch?v=Yr0fge4et4o", solution: `public void rotate(int[] nums, int k) {
     int n = nums.length; k %= n;
     reverse(nums, 0, n-1);
     reverse(nums, 0, k-1);
@@ -51,7 +51,7 @@ private void reverse(int[] a, int l, int r) {
     while (l < r) { int t = a[l]; a[l++] = a[r]; a[r--] = t; }
 }`},
   {
-    id: 7, name: "Best Time to Buy and Sell Stock", topic: "Arrays/String", difficulty: "Easy", pattern: "Greedy / Sliding Window", approach: "Track min price seen so far; update max profit at each step.", link: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/", solution: `public int maxProfit(int[] prices) {
+    id: 7, name: "Best Time to Buy and Sell Stock", topic: "Arrays/String", difficulty: "Easy", pattern: "Greedy / Sliding Window", approach: "Track min price seen so far; update max profit at each step.", link: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/", video: "https://www.youtube.com/watch?v=gWaf46b7xcY", solution: `public int maxProfit(int[] prices) {
     int minP = Integer.MAX_VALUE, maxP = 0;
     for (int p : prices) {
         minP = Math.min(minP, p);
@@ -60,14 +60,14 @@ private void reverse(int[] a, int l, int r) {
     return maxP;
 }`},
   {
-    id: 8, name: "Best Time to Buy and Sell Stock II", topic: "Arrays/String", difficulty: "Medium", pattern: "Greedy", approach: "Add every positive difference (valley to peak) — unlimited transactions.", link: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/", solution: `public int maxProfit(int[] prices) {
+    id: 8, name: "Best Time to Buy and Sell Stock II", topic: "Arrays/String", difficulty: "Medium", pattern: "Greedy", approach: "Add every positive difference (valley to peak) — unlimited transactions.", link: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/", video: "https://www.youtube.com/watch?v=gWaf46b7xcY", solution: `public int maxProfit(int[] prices) {
     int profit = 0;
     for (int i = 1; i < prices.length; i++)
         if (prices[i] > prices[i-1]) profit += prices[i] - prices[i-1];
     return profit;
 }`},
   {
-    id: 9, name: "Jump Game", topic: "Arrays/String", difficulty: "Medium", pattern: "Greedy", approach: "Track the farthest index reachable; if current index exceeds it, return false.", link: "https://leetcode.com/problems/jump-game/", solution: `public boolean canJump(int[] nums) {
+    id: 9, name: "Jump Game", topic: "Arrays/String", difficulty: "Medium", pattern: "Greedy", approach: "Track the farthest index reachable; if current index exceeds it, return false.", link: "https://leetcode.com/problems/jump-game/", video: "https://www.youtube.com/watch?v=SEWoBJNPA6M", solution: `public boolean canJump(int[] nums) {
     int reach = 0;
     for (int i = 0; i < nums.length; i++) {
         if (i > reach) return false;
@@ -76,7 +76,7 @@ private void reverse(int[] a, int l, int r) {
     return true;
 }`},
   {
-    id: 10, name: "Jump Game II", topic: "Arrays/String", difficulty: "Medium", pattern: "Greedy / BFS Levels", approach: "Track current jump's farthest reach; when you cross it, increment jumps.", link: "https://leetcode.com/problems/jump-game-ii/", solution: `public int jump(int[] nums) {
+    id: 10, name: "Jump Game II", topic: "Arrays/String", difficulty: "Medium", pattern: "Greedy / BFS Levels", approach: "Track current jump's farthest reach; when you cross it, increment jumps.", link: "https://leetcode.com/problems/jump-game-ii/", video: "https://www.youtube.com/watch?v=rwGPzDsVIgw", solution: `public int jump(int[] nums) {
     int jumps=0, curEnd=0, farthest=0;
     for (int i = 0; i < nums.length-1; i++) {
         farthest = Math.max(farthest, i+nums[i]);
@@ -85,7 +85,7 @@ private void reverse(int[] a, int l, int r) {
     return jumps;
 }`},
   {
-    id: 11, name: "H-Index", topic: "Arrays/String", difficulty: "Medium", pattern: "Sorting / Counting Sort", approach: "Sort descending; find largest h where citations[h-1] >= h.", link: "https://leetcode.com/problems/h-index/", solution: `public int hIndex(int[] citations) {
+    id: 11, name: "H-Index", topic: "Arrays/String", difficulty: "Medium", pattern: "Sorting / Counting Sort", approach: "Sort descending; find largest h where citations[h-1] >= h.", link: "https://leetcode.com/problems/h-index/", video: "https://www.youtube.com/watch?v=K3Vm5NC0sVY", solution: `public int hIndex(int[] citations) {
     Arrays.sort(citations);
     int n = citations.length, h = 0;
     for (int i = n-1; i >= 0; i--)
@@ -93,7 +93,7 @@ private void reverse(int[] a, int l, int r) {
     return h;
 }`},
   {
-    id: 12, name: "Insert Delete GetRandom O(1)", topic: "Arrays/String", difficulty: "Medium", pattern: "HashMap + ArrayList", approach: "Map stores val→index; swap with last on delete to maintain O(1).", link: "https://leetcode.com/problems/insert-delete-getrandom-o1/", solution: `class RandomizedSet {
+    id: 12, name: "Insert Delete GetRandom O(1)", topic: "Arrays/String", difficulty: "Medium", pattern: "HashMap + ArrayList", approach: "Map stores val→index; swap with last on delete to maintain O(1).", link: "https://leetcode.com/problems/insert-delete-getrandom-o1/", video: "https://www.youtube.com/watch?v=iPuehAQDMx8", solution: `class RandomizedSet {
     Map<Integer,Integer> map = new HashMap<>();
     List<Integer> list = new ArrayList<>();
     Random rand = new Random();
@@ -110,7 +110,7 @@ private void reverse(int[] a, int l, int r) {
     public int getRandom() { return list.get(rand.nextInt(list.size())); }
 }`},
   {
-    id: 13, name: "Product of Array Except Self", topic: "Arrays/String", difficulty: "Medium", pattern: "Prefix & Suffix Product", approach: "Left pass computes prefix products; right pass multiplies suffix in-place.", link: "https://leetcode.com/problems/product-of-array-except-self/", solution: `public int[] productExceptSelf(int[] nums) {
+    id: 13, name: "Product of Array Except Self", topic: "Arrays/String", difficulty: "Medium", pattern: "Prefix & Suffix Product", approach: "Left pass computes prefix products; right pass multiplies suffix in-place.", link: "https://leetcode.com/problems/product-of-array-except-self/", video: "https://www.youtube.com/watch?v=0psoHe1s7IY", solution: `public int[] productExceptSelf(int[] nums) {
     int n = nums.length; int[] res = new int[n];
     res[0] = 1;
     for (int i = 1; i < n; i++) res[i] = res[i-1]*nums[i-1];
@@ -119,7 +119,7 @@ private void reverse(int[] a, int l, int r) {
     return res;
 }`},
   {
-    id: 14, name: "Gas Station", topic: "Arrays/String", difficulty: "Medium", pattern: "Greedy", approach: "If total gas >= total cost a solution exists; start where cumulative tank never goes negative.", link: "https://leetcode.com/problems/gas-station/", solution: `public int canCompleteCircuit(int[] gas, int[] cost) {
+    id: 14, name: "Gas Station", topic: "Arrays/String", difficulty: "Medium", pattern: "Greedy", approach: "If total gas >= total cost a solution exists; start where cumulative tank never goes negative.", link: "https://leetcode.com/problems/gas-station/", video: "https://www.youtube.com/watch?v=YsLmpLKNCF0", solution: `public int canCompleteCircuit(int[] gas, int[] cost) {
     int total=0, tank=0, start=0;
     for (int i=0; i<gas.length; i++) {
         int diff = gas[i]-cost[i];
@@ -129,7 +129,7 @@ private void reverse(int[] a, int l, int r) {
     return total >= 0 ? start : -1;
 }`},
   {
-    id: 15, name: "Candy", topic: "Arrays/String", difficulty: "Hard", pattern: "Greedy (Two Pass)", approach: "Left→right pass ensures right neighbor gets more; right→left pass ensures left neighbor gets more.", link: "https://leetcode.com/problems/candy/", solution: `public int candy(int[] ratings) {
+    id: 15, name: "Candy", topic: "Arrays/String", difficulty: "Hard", pattern: "Greedy (Two Pass)", approach: "Left→right pass ensures right neighbor gets more; right→left pass ensures left neighbor gets more.", link: "https://leetcode.com/problems/candy/", video: "https://www.youtube.com/watch?v=Y-TZiKSZS_U", solution: `public int candy(int[] ratings) {
     int n = ratings.length; int[] c = new int[n];
     Arrays.fill(c, 1);
     for (int i=1;i<n;i++) if(ratings[i]>ratings[i-1]) c[i]=c[i-1]+1;
@@ -137,7 +137,7 @@ private void reverse(int[] a, int l, int r) {
     return Arrays.stream(c).sum();
 }`},
   {
-    id: 16, name: "Trapping Rain Water", topic: "Arrays/String", difficulty: "Hard", pattern: "Two Pointers", approach: "Use left/right pointers; water trapped at each position = min(maxL,maxR) - height.", link: "https://leetcode.com/problems/trapping-rain-water/", solution: `public int trap(int[] h) {
+    id: 16, name: "Trapping Rain Water", topic: "Arrays/String", difficulty: "Hard", pattern: "Two Pointers", approach: "Use left/right pointers; water trapped at each position = min(maxL,maxR) - height.", link: "https://leetcode.com/problems/trapping-rain-water/", video: "https://www.youtube.com/watch?v=4vfN22Ja2UE", solution: `public int trap(int[] h) {
     int l=0,r=h.length-1,maxL=0,maxR=0,res=0;
     while(l<r){
         if(h[l]<h[r]){
@@ -149,7 +149,7 @@ private void reverse(int[] a, int l, int r) {
     return res;
 }`},
   {
-    id: 17, name: "Roman to Integer", topic: "Arrays/String", difficulty: "Easy", pattern: "HashMap / Simulation", approach: "If current value < next value, subtract; else add.", link: "https://leetcode.com/problems/roman-to-integer/", solution: `public int romanToInt(String s) {
+    id: 17, name: "Roman to Integer", topic: "Arrays/String", difficulty: "Easy", pattern: "HashMap / Simulation", approach: "If current value < next value, subtract; else add.", link: "https://leetcode.com/problems/roman-to-integer/", video: "https://www.youtube.com/watch?v=PhuqOp26LZI", solution: `public int romanToInt(String s) {
     Map<Character,Integer> m = Map.of('I',1,'V',5,'X',10,'L',50,'C',100,'D',500,'M',1000);
     int res=0;
     for(int i=0;i<s.length();i++){
@@ -159,7 +159,7 @@ private void reverse(int[] a, int l, int r) {
     return res;
 }`},
   {
-    id: 18, name: "Integer to Roman", topic: "Arrays/String", difficulty: "Medium", pattern: "Greedy", approach: "Use value-symbol pairs in descending order; keep subtracting largest fitting value.", link: "https://leetcode.com/problems/integer-to-roman/", solution: `public String intToRoman(int num) {
+    id: 18, name: "Integer to Roman", topic: "Arrays/String", difficulty: "Medium", pattern: "Greedy", approach: "Use value-symbol pairs in descending order; keep subtracting largest fitting value.", link: "https://leetcode.com/problems/integer-to-roman/", video: "https://www.youtube.com/watch?v=PhuqOp26LZI", solution: `public String intToRoman(int num) {
     int[] v={1000,900,500,400,100,90,50,40,10,9,5,4,1};
     String[] s={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
     StringBuilder sb=new StringBuilder();
@@ -167,26 +167,26 @@ private void reverse(int[] a, int l, int r) {
     return sb.toString();
 }`},
   {
-    id: 19, name: "Length of Last Word", topic: "Arrays/String", difficulty: "Easy", pattern: "String Traversal", approach: "Trim trailing spaces, then count backwards until space.", link: "https://leetcode.com/problems/length-of-last-word/", solution: `public int lengthOfLastWord(String s) {
+    id: 19, name: "Length of Last Word", topic: "Arrays/String", difficulty: "Easy", pattern: "String Traversal", approach: "Trim trailing spaces, then count backwards until space.", link: "https://leetcode.com/problems/length-of-last-word/", video: "https://www.youtube.com/watch?v=Cm-sYXYCteg", solution: `public int lengthOfLastWord(String s) {
     s = s.trim(); int len=0;
     for(int i=s.length()-1;i>=0&&s.charAt(i)!=' ';i--) len++;
     return len;
 }`},
   {
-    id: 20, name: "Longest Common Prefix", topic: "Arrays/String", difficulty: "Easy", pattern: "Horizontal Scanning", approach: "Compare characters column by column across all strings.", link: "https://leetcode.com/problems/longest-common-prefix/", solution: `public String longestCommonPrefix(String[] strs) {
+    id: 20, name: "Longest Common Prefix", topic: "Arrays/String", difficulty: "Easy", pattern: "Horizontal Scanning", approach: "Compare characters column by column across all strings.", link: "https://leetcode.com/problems/longest-common-prefix/", video: "https://www.youtube.com/watch?v=Cm-sYXYCteg", solution: `public String longestCommonPrefix(String[] strs) {
     String pre = strs[0];
     for(String s:strs) while(!s.startsWith(pre)) pre=pre.substring(0,pre.length()-1);
     return pre;
 }`},
   {
-    id: 21, name: "Reverse Words in a String", topic: "Arrays/String", difficulty: "Medium", pattern: "String Split / Two Pointers", approach: "Split by spaces, filter blanks, reverse array, join.", link: "https://leetcode.com/problems/reverse-words-in-a-string/", solution: `public String reverseWords(String s) {
+    id: 21, name: "Reverse Words in a String", topic: "Arrays/String", difficulty: "Medium", pattern: "String Split / Two Pointers", approach: "Split by spaces, filter blanks, reverse array, join.", link: "https://leetcode.com/problems/reverse-words-in-a-string/", video: "https://www.youtube.com/watch?v=nbYP7rOlk-U", solution: `public String reverseWords(String s) {
     String[] w = s.trim().split("\\s+");
     StringBuilder sb = new StringBuilder();
     for(int i=w.length-1;i>=0;i--){ sb.append(w[i]); if(i>0) sb.append(' ');}
     return sb.toString();
 }`},
   {
-    id: 22, name: "Zigzag Conversion", topic: "Arrays/String", difficulty: "Medium", pattern: "Simulation / Row Assignment", approach: "Assign chars to rows; toggle direction when hitting top/bottom row.", link: "https://leetcode.com/problems/zigzag-conversion/", solution: `public String convert(String s, int numRows) {
+    id: 22, name: "Zigzag Conversion", topic: "Arrays/String", difficulty: "Medium", pattern: "Simulation / Row Assignment", approach: "Assign chars to rows; toggle direction when hitting top/bottom row.", link: "https://leetcode.com/problems/zigzag-conversion/", video: "https://www.youtube.com/watch?v=nnb2hGgLZ8I", solution: `public String convert(String s, int numRows) {
     if(numRows==1) return s;
     StringBuilder[] rows = new StringBuilder[numRows];
     for(int i=0;i<numRows;i++) rows[i]=new StringBuilder();
@@ -201,11 +201,11 @@ private void reverse(int[] a, int l, int r) {
     return res.toString();
 }`},
   {
-    id: 23, name: "Find the Index of the First Occurrence in a String", topic: "Arrays/String", difficulty: "Easy", pattern: "KMP / Built-in", approach: "Use KMP failure function for O(n+m) matching.", link: "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/", solution: `public int strStr(String haystack, String needle) {
+    id: 23, name: "Find the Index of the First Occurrence in a String", topic: "Arrays/String", difficulty: "Easy", pattern: "KMP / Built-in", approach: "Use KMP failure function for O(n+m) matching.", link: "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/", video: "https://www.youtube.com/watch?v=L6BLNwq8EJo", solution: `public int strStr(String haystack, String needle) {
     return haystack.indexOf(needle); // or KMP for O(n+m)
 }`},
   {
-    id: 24, name: "Text Justification", topic: "Arrays/String", difficulty: "Hard", pattern: "Greedy / Simulation", approach: "Greedily pack words per line; distribute spaces evenly, last line left-aligned.", link: "https://leetcode.com/problems/text-justification/", solution: `public List<String> fullJustify(String[] words, int maxWidth) {
+    id: 24, name: "Text Justification", topic: "Arrays/String", difficulty: "Hard", pattern: "Greedy / Simulation", approach: "Greedily pack words per line; distribute spaces evenly, last line left-aligned.", link: "https://leetcode.com/problems/text-justification/", video: "https://www.youtube.com/watch?v=8Ue8O2xF6zA", solution: `public List<String> fullJustify(String[] words, int maxWidth) {
     List<String> res=new ArrayList<>(); int i=0,n=words.length;
     while(i<n){
         int len=words[i].length(),j=i+1;
@@ -227,13 +227,13 @@ private void reverse(int[] a, int l, int r) {
     return res;
 }`},
   {
-    id: 25, name: "Rotate Matrix", topic: "Arrays/String", difficulty: "Medium", pattern: "Matrix Manipulation", approach: "Transpose matrix then reverse each row (in-place 90° clockwise rotation).", link: "https://leetcode.com/problems/rotate-image/", solution: `public void rotate(int[][] m) {
+    id: 25, name: "Rotate Matrix", topic: "Arrays/String", difficulty: "Medium", pattern: "Matrix Manipulation", approach: "Transpose matrix then reverse each row (in-place 90° clockwise rotation).", link: "https://leetcode.com/problems/rotate-image/", video: "https://www.youtube.com/watch?v=UJpP_8z8nHA", solution: `public void rotate(int[][] m) {
     int n=m.length;
     for(int i=0;i<n;i++) for(int j=i;j<n;j++){int t=m[i][j];m[i][j]=m[j][i];m[j][i]=t;}
     for(int[] row:m){int l=0,r=n-1;while(l<r){int t=row[l];row[l++]=row[r];row[r--]=t;}}
 }`},
   {
-    id: 26, name: "Merge Overlapping Subintervals", topic: "Arrays/String", difficulty: "Medium", pattern: "Sorting + Greedy", approach: "Sort by start; merge if current start <= previous end.", link: "https://leetcode.com/problems/merge-intervals/", solution: `public int[][] merge(int[][] intervals) {
+    id: 26, name: "Merge Overlapping Subintervals", topic: "Arrays/String", difficulty: "Medium", pattern: "Sorting + Greedy", approach: "Sort by start; merge if current start <= previous end.", link: "https://leetcode.com/problems/merge-intervals/", video: "https://www.youtube.com/watch?v=wYBwvctRkWI", solution: `public int[][] merge(int[][] intervals) {
     Arrays.sort(intervals,(a,b)->a[0]-b[0]);
     List<int[]> res=new ArrayList<>();
     for(int[] iv:intervals){
@@ -244,7 +244,7 @@ private void reverse(int[] a, int l, int r) {
     return res.toArray(new int[0][]);
 }`},
   {
-    id: 27, name: "Merge two sorted arrays without extra space", topic: "Arrays/String", difficulty: "Medium", pattern: "Gap Algorithm / Shell Sort", approach: "Use Shell sort gap method: compare elements gap apart and swap if needed.", link: "https://leetcode.com/problems/merge-sorted-array/", solution: `// Gap method — O(n log n) time, O(1) space
+    id: 27, name: "Merge two sorted arrays without extra space", topic: "Arrays/String", difficulty: "Medium", pattern: "Gap Algorithm / Shell Sort", approach: "Use Shell sort gap method: compare elements gap apart and swap if needed.", link: "https://leetcode.com/problems/merge-sorted-array/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `// Gap method — O(n log n) time, O(1) space
 public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     int gap=(int)Math.ceil((double)(n+m)/2);
     while(gap>0){
@@ -260,7 +260,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     }
 }`},
   {
-    id: 28, name: "Find the duplicate in an array of N+1 integers", topic: "Arrays/String", difficulty: "Medium", pattern: "Floyd's Cycle Detection", approach: "Treat array as linked list; find cycle entry = duplicate.", link: "https://leetcode.com/problems/find-the-duplicate-number/", solution: `public int findDuplicate(int[] nums) {
+    id: 28, name: "Find the duplicate in an array of N+1 integers", topic: "Arrays/String", difficulty: "Medium", pattern: "Floyd's Cycle Detection", approach: "Treat array as linked list; find cycle entry = duplicate.", link: "https://leetcode.com/problems/find-the-duplicate-number/", video: "https://www.youtube.com/watch?v=PaFp76epCHk", solution: `public int findDuplicate(int[] nums) {
     int slow=nums[0],fast=nums[0];
     do{slow=nums[slow];fast=nums[nums[fast]];}while(slow!=fast);
     slow=nums[0];
@@ -268,13 +268,13 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return slow;
 }`},
   {
-    id: 29, name: "Grid Unique Paths", topic: "Arrays/String", difficulty: "Medium", pattern: "DP / Combinatorics", approach: "dp[i][j] = dp[i-1][j] + dp[i][j-1]. Or use C(m+n-2, m-1).", link: "https://leetcode.com/problems/unique-paths/", solution: `public int uniquePaths(int m, int n) {
+    id: 29, name: "Grid Unique Paths", topic: "Arrays/String", difficulty: "Medium", pattern: "DP / Combinatorics", approach: "dp[i][j] = dp[i-1][j] + dp[i][j-1]. Or use C(m+n-2, m-1).", link: "https://leetcode.com/problems/unique-paths/", video: "https://www.youtube.com/watch?v=KI-Hw41qJd4", solution: `public int uniquePaths(int m, int n) {
     int[] dp=new int[n]; Arrays.fill(dp,1);
     for(int i=1;i<m;i++) for(int j=1;j<n;j++) dp[j]+=dp[j-1];
     return dp[n-1];
 }`},
   {
-    id: 30, name: "Majority Element (n/3 times)", topic: "Arrays/String", difficulty: "Medium", pattern: "Boyer-Moore Voting (Extended)", approach: "At most 2 candidates; use two candidate counters.", link: "https://leetcode.com/problems/majority-element-ii/", solution: `public List<Integer> majorityElement(int[] nums) {
+    id: 30, name: "Majority Element (n/3 times)", topic: "Arrays/String", difficulty: "Medium", pattern: "Boyer-Moore Voting (Extended)", approach: "At most 2 candidates; use two candidate counters.", link: "https://leetcode.com/problems/majority-element-ii/", video: "https://www.youtube.com/watch?v=W0X1a-Q7-Sc", solution: `public List<Integer> majorityElement(int[] nums) {
     int c1=0,c2=0,n1=0,n2=1;
     for(int n:nums){
         if(n==c1) n1++; else if(n==c2) n2++;
@@ -289,7 +289,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return res;
 }`},
   {
-    id: 31, name: "Valid Palindrome", topic: "Two Pointers", difficulty: "Easy", pattern: "Two Pointers", approach: "l/r pointers skip non-alphanumeric; compare case-insensitively.", link: "https://leetcode.com/problems/valid-palindrome/", solution: `public boolean isPalindrome(String s) {
+    id: 31, name: "Valid Palindrome", topic: "Two Pointers", difficulty: "Easy", pattern: "Two Pointers", approach: "l/r pointers skip non-alphanumeric; compare case-insensitively.", link: "https://leetcode.com/problems/valid-palindrome/", video: "https://www.youtube.com/watch?v=rFLKjaap8Bg", solution: `public boolean isPalindrome(String s) {
     int l=0,r=s.length()-1;
     while(l<r){
         while(l<r&&!Character.isLetterOrDigit(s.charAt(l)))l++;
@@ -300,13 +300,13 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return true;
 }`},
   {
-    id: 32, name: "Is Subsequence", topic: "Two Pointers", difficulty: "Easy", pattern: "Two Pointers", approach: "Move s-pointer when characters match; check if s-pointer reaches end.", link: "https://leetcode.com/problems/is-subsequence/", solution: `public boolean isSubsequence(String s, String t) {
+    id: 32, name: "Is Subsequence", topic: "Two Pointers", difficulty: "Easy", pattern: "Two Pointers", approach: "Move s-pointer when characters match; check if s-pointer reaches end.", link: "https://leetcode.com/problems/is-subsequence/", video: "https://www.youtube.com/watch?v=rFLKjaap8Bg", solution: `public boolean isSubsequence(String s, String t) {
     int i=0;
     for(char c:t.toCharArray()) if(i<s.length()&&c==s.charAt(i)) i++;
     return i==s.length();
 }`},
   {
-    id: 33, name: "Two Sum II - Input Array Is Sorted", topic: "Two Pointers", difficulty: "Medium", pattern: "Two Pointers", approach: "L+R pointers; move left if sum too small, right if too large.", link: "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/", solution: `public int[] twoSum(int[] nums, int target) {
+    id: 33, name: "Two Sum II - Input Array Is Sorted", topic: "Two Pointers", difficulty: "Medium", pattern: "Two Pointers", approach: "L+R pointers; move left if sum too small, right if too large.", link: "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/", video: "https://www.youtube.com/watch?v=t8U15yS596k", solution: `public int[] twoSum(int[] nums, int target) {
     int l=0,r=nums.length-1;
     while(l<r){
         int s=nums[l]+nums[r];
@@ -316,7 +316,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return new int[]{};
 }`},
   {
-    id: 34, name: "Container With Most Water", topic: "Two Pointers", difficulty: "Medium", pattern: "Two Pointers", approach: "Move the pointer pointing to the shorter line inward.", link: "https://leetcode.com/problems/container-with-most-water/", solution: `public int maxArea(int[] h) {
+    id: 34, name: "Container With Most Water", topic: "Two Pointers", difficulty: "Medium", pattern: "Two Pointers", approach: "Move the pointer pointing to the shorter line inward.", link: "https://leetcode.com/problems/container-with-most-water/", video: "https://www.youtube.com/watch?v=BpWHbFcCPdA", solution: `public int maxArea(int[] h) {
     int l=0,r=h.length-1,max=0;
     while(l<r){
         max=Math.max(max,Math.min(h[l],h[r])*(r-l));
@@ -325,7 +325,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return max;
 }`},
   {
-    id: 35, name: "3Sum", topic: "Two Pointers", difficulty: "Medium", pattern: "Sort + Two Pointers", approach: "Fix one element, use two-pointer for remaining. Skip duplicates.", link: "https://leetcode.com/problems/3sum/", solution: `public List<List<Integer>> threeSum(int[] nums) {
+    id: 35, name: "3Sum", topic: "Two Pointers", difficulty: "Medium", pattern: "Sort + Two Pointers", approach: "Fix one element, use two-pointer for remaining. Skip duplicates.", link: "https://leetcode.com/problems/3sum/", video: "https://www.youtube.com/watch?v=OVpRrNdxwio", solution: `public List<List<Integer>> threeSum(int[] nums) {
     Arrays.sort(nums); List<List<Integer>> res=new ArrayList<>();
     for(int i=0;i<nums.length-2;i++){
         if(i>0&&nums[i]==nums[i-1]) continue;
@@ -341,13 +341,13 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return res;
 }`},
   {
-    id: 36, name: "Move Zeroes", topic: "Two Pointers", difficulty: "Easy", pattern: "Two Pointers", approach: "Slow pointer tracks next write position for non-zero elements.", link: "https://leetcode.com/problems/move-zeroes/", solution: `public void moveZeroes(int[] nums) {
+    id: 36, name: "Move Zeroes", topic: "Two Pointers", difficulty: "Easy", pattern: "Two Pointers", approach: "Slow pointer tracks next write position for non-zero elements.", link: "https://leetcode.com/problems/move-zeroes/", video: "https://www.youtube.com/watch?v=7G8hzhnRMIg", solution: `public void moveZeroes(int[] nums) {
     int k=0;
     for(int n:nums) if(n!=0) nums[k++]=n;
     while(k<nums.length) nums[k++]=0;
 }`},
   {
-    id: 37, name: "Minimum Size Subarray Sum", topic: "Sliding Window", difficulty: "Medium", pattern: "Sliding Window", approach: "Expand right; shrink left whenever sum >= target. Track min window.", link: "https://leetcode.com/problems/minimum-size-subarray-sum/", solution: `public int minSubArrayLen(int target, int[] nums) {
+    id: 37, name: "Minimum Size Subarray Sum", topic: "Sliding Window", difficulty: "Medium", pattern: "Sliding Window", approach: "Expand right; shrink left whenever sum >= target. Track min window.", link: "https://leetcode.com/problems/minimum-size-subarray-sum/", video: "https://www.youtube.com/watch?v=3lRk5J7EuRk", solution: `public int minSubArrayLen(int target, int[] nums) {
     int l=0,sum=0,min=Integer.MAX_VALUE;
     for(int r=0;r<nums.length;r++){
         sum+=nums[r];
@@ -356,7 +356,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return min==Integer.MAX_VALUE?0:min;
 }`},
   {
-    id: 38, name: "Longest Substring Without Repeating Characters", topic: "Sliding Window", difficulty: "Medium", pattern: "Sliding Window + HashMap", approach: "Map stores last index of each char; shrink window when duplicate found.", link: "https://leetcode.com/problems/longest-substring-without-repeating-characters/", solution: `public int lengthOfLongestSubstring(String s) {
+    id: 38, name: "Longest Substring Without Repeating Characters", topic: "Sliding Window", difficulty: "Medium", pattern: "Sliding Window + HashMap", approach: "Map stores last index of each char; shrink window when duplicate found.", link: "https://leetcode.com/problems/longest-substring-without-repeating-characters/", video: "https://www.youtube.com/watch?v=ujuN_RP_6AA", solution: `public int lengthOfLongestSubstring(String s) {
     Map<Character,Integer> map=new HashMap<>();
     int max=0,l=0;
     for(int r=0;r<s.length();r++){
@@ -367,7 +367,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return max;
 }`},
   {
-    id: 39, name: "Substring with Concatenation of All Words", topic: "Sliding Window", difficulty: "Hard", pattern: "Sliding Window + HashMap", approach: "Try each start offset [0, wordLen); use sliding window of wordLen*words.length.", link: "https://leetcode.com/problems/substring-with-concatenation-of-all-words/", solution: `public List<Integer> findSubstring(String s, String[] words) {
+    id: 39, name: "Substring with Concatenation of All Words", topic: "Sliding Window", difficulty: "Hard", pattern: "Sliding Window + HashMap", approach: "Try each start offset [0, wordLen); use sliding window of wordLen*words.length.", link: "https://leetcode.com/problems/substring-with-concatenation-of-all-words/", video: "https://www.youtube.com/watch?v=987Aa-hyY4w", solution: `public List<Integer> findSubstring(String s, String[] words) {
     List<Integer> res=new ArrayList<>();
     if(s.isEmpty()||words.length==0) return res;
     int wLen=words[0].length(),total=words.length,n=s.length();
@@ -391,7 +391,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return res;
 }`},
   {
-    id: 40, name: "Minimum Window Substring", topic: "Sliding Window", difficulty: "Hard", pattern: "Sliding Window + HashMap", approach: "Expand right until all chars covered; shrink left to minimize window.", link: "https://leetcode.com/problems/minimum-window-substring/", solution: `public String minWindow(String s, String t) {
+    id: 40, name: "Minimum Window Substring", topic: "Sliding Window", difficulty: "Hard", pattern: "Sliding Window + HashMap", approach: "Expand right until all chars covered; shrink left to minimize window.", link: "https://leetcode.com/problems/minimum-window-substring/", video: "https://www.youtube.com/watch?v=VIQ3qH5VF88", solution: `public String minWindow(String s, String t) {
     Map<Character,Integer> need=new HashMap<>();
     for(char c:t.toCharArray()) need.merge(c,1,Integer::sum);
     int l=0,have=0,want=need.size(),minLen=Integer.MAX_VALUE,start=0;
@@ -409,7 +409,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return minLen==Integer.MAX_VALUE?"":s.substring(start,start+minLen);
 }`},
   {
-    id: 41, name: "Valid Sudoku", topic: "Matrix", difficulty: "Medium", pattern: "HashSet Validation", approach: "Use sets for each row, col, and 3x3 box to detect duplicates.", link: "https://leetcode.com/problems/valid-sudoku/", solution: `public boolean isValidSudoku(char[][] board) {
+    id: 41, name: "Valid Sudoku", topic: "Matrix", difficulty: "Medium", pattern: "HashSet Validation", approach: "Use sets for each row, col, and 3x3 box to detect duplicates.", link: "https://leetcode.com/problems/valid-sudoku/", video: "https://www.youtube.com/watch?v=O57WB8g8xJo", solution: `public boolean isValidSudoku(char[][] board) {
     Set<String> seen=new HashSet<>();
     for(int i=0;i<9;i++) for(int j=0;j<9;j++){
         char c=board[i][j]; if(c=='.') continue;
@@ -418,7 +418,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return true;
 }`},
   {
-    id: 42, name: "Spiral Matrix", topic: "Matrix", difficulty: "Medium", pattern: "Simulation / Boundary Shrinking", approach: "Use top/bottom/left/right boundaries; shrink after each direction pass.", link: "https://leetcode.com/problems/spiral-matrix/", solution: `public List<Integer> spiralOrder(int[][] m) {
+    id: 42, name: "Spiral Matrix", topic: "Matrix", difficulty: "Medium", pattern: "Simulation / Boundary Shrinking", approach: "Use top/bottom/left/right boundaries; shrink after each direction pass.", link: "https://leetcode.com/problems/spiral-matrix/", video: "https://www.youtube.com/watch?v=sud5q7y6ub0", solution: `public List<Integer> spiralOrder(int[][] m) {
     List<Integer> res=new ArrayList<>();
     int t=0,b=m.length-1,l=0,r=m[0].length-1;
     while(t<=b&&l<=r){
@@ -430,13 +430,13 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return res;
 }`},
   {
-    id: 43, name: "Rotate Image", topic: "Matrix", difficulty: "Medium", pattern: "Transpose + Reverse", approach: "Transpose then reverse each row for 90° clockwise rotation.", link: "https://leetcode.com/problems/rotate-image/", solution: `public void rotate(int[][] m) {
+    id: 43, name: "Rotate Image", topic: "Matrix", difficulty: "Medium", pattern: "Transpose + Reverse", approach: "Transpose then reverse each row for 90° clockwise rotation.", link: "https://leetcode.com/problems/rotate-image/", video: "https://www.youtube.com/watch?v=UJpP_8z8nHA", solution: `public void rotate(int[][] m) {
     int n=m.length;
     for(int i=0;i<n;i++) for(int j=i;j<n;j++){int t=m[i][j];m[i][j]=m[j][i];m[j][i]=t;}
     for(int[] row:m){int l=0,r=n-1;while(l<r){int t=row[l];row[l++]=row[r];row[r--]=t;}}
 }`},
   {
-    id: 44, name: "Set Matrix Zeroes", topic: "Matrix", difficulty: "Medium", pattern: "In-place Marking", approach: "Use first row/col as markers; handle first row/col separately.", link: "https://leetcode.com/problems/set-matrix-zeroes/", solution: `public void setZeroes(int[][] m) {
+    id: 44, name: "Set Matrix Zeroes", topic: "Matrix", difficulty: "Medium", pattern: "In-place Marking", approach: "Use first row/col as markers; handle first row/col separately.", link: "https://leetcode.com/problems/set-matrix-zeroes/", video: "https://www.youtube.com/watch?v=NxIiAymtavU", solution: `public void setZeroes(int[][] m) {
     boolean fr=false,fc=false;
     for(int j=0;j<m[0].length;j++) if(m[0][j]==0) fr=true;
     for(int i=0;i<m.length;i++) if(m[i][0]==0) fc=true;
@@ -448,7 +448,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     if(fc) for(int i=0;i<m.length;i++) m[i][0]=0;
 }`},
   {
-    id: 45, name: "Game of Life", topic: "Matrix", difficulty: "Medium", pattern: "In-place State Encoding", approach: "Encode next state in extra bits (2=dead→live, 3=live→live).", link: "https://leetcode.com/problems/game-of-life/", solution: `public void gameOfLife(int[][] b) {
+    id: 45, name: "Game of Life", topic: "Matrix", difficulty: "Medium", pattern: "In-place State Encoding", approach: "Encode next state in extra bits (2=dead→live, 3=live→live).", link: "https://leetcode.com/problems/game-of-life/", video: "https://www.youtube.com/watch?v=oplpJYenR0c", solution: `public void gameOfLife(int[][] b) {
     int[] d={-1,0,1};
     for(int i=0;i<b.length;i++) for(int j=0;j<b[0].length;j++){
         int live=0;
@@ -463,7 +463,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     for(int i=0;i<b.length;i++) for(int j=0;j<b[0].length;j++) b[i][j]>>=1;
 }`},
   {
-    id: 46, name: "Linked List Cycle", topic: "Linked List", difficulty: "Easy", pattern: "Floyd's Cycle Detection", approach: "Fast/slow pointers; they meet inside the cycle if one exists.", link: "https://leetcode.com/problems/linked-list-cycle/", solution: `public boolean hasCycle(ListNode head) {
+    id: 46, name: "Linked List Cycle", topic: "Linked List", difficulty: "Easy", pattern: "Floyd's Cycle Detection", approach: "Fast/slow pointers; they meet inside the cycle if one exists.", link: "https://leetcode.com/problems/linked-list-cycle/", video: "https://www.youtube.com/watch?v=00ePjzq_76w", solution: `public boolean hasCycle(ListNode head) {
     ListNode s=head,f=head;
     while(f!=null&&f.next!=null){
         s=s.next; f=f.next.next;
@@ -472,7 +472,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return false;
 }`},
   {
-    id: 47, name: "Add Two Numbers", topic: "Linked List", difficulty: "Medium", pattern: "Simulation / Carry", approach: "Traverse both lists simultaneously; maintain carry.", link: "https://leetcode.com/problems/add-two-numbers/", solution: `public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    id: 47, name: "Add Two Numbers", topic: "Linked List", difficulty: "Medium", pattern: "Simulation / Carry", approach: "Traverse both lists simultaneously; maintain carry.", link: "https://leetcode.com/problems/add-two-numbers/", video: "https://www.youtube.com/watch?v=OZdC9vxLyA8", solution: `public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
     ListNode dummy=new ListNode(0),cur=dummy; int carry=0;
     while(l1!=null||l2!=null||carry!=0){
         int s=(l1!=null?l1.val:0)+(l2!=null?l2.val:0)+carry;
@@ -482,13 +482,13 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return dummy.next;
 }`},
   {
-    id: 48, name: "Merge Two Sorted Lists", topic: "Linked List", difficulty: "Easy", pattern: "Two Pointers / Recursion", approach: "Compare heads; attach smaller node, recurse.", link: "https://leetcode.com/problems/merge-two-sorted-lists/", solution: `public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    id: 48, name: "Merge Two Sorted Lists", topic: "Linked List", difficulty: "Easy", pattern: "Two Pointers / Recursion", approach: "Compare heads; attach smaller node, recurse.", link: "https://leetcode.com/problems/merge-two-sorted-lists/", video: "https://www.youtube.com/watch?v=xqLvqgNRWQ8", solution: `public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
     if(l1==null) return l2; if(l2==null) return l1;
     if(l1.val<=l2.val){l1.next=mergeTwoLists(l1.next,l2);return l1;}
     else{l2.next=mergeTwoLists(l1,l2.next);return l2;}
 }`},
   {
-    id: 49, name: "Copy List with Random Pointer", topic: "Linked List", difficulty: "Medium", pattern: "HashMap", approach: "Map original→clone; two passes: first create clones, then set next/random.", link: "https://leetcode.com/problems/copy-list-with-random-pointer/", solution: `public Node copyRandomList(Node head) {
+    id: 49, name: "Copy List with Random Pointer", topic: "Linked List", difficulty: "Medium", pattern: "HashMap", approach: "Map original→clone; two passes: first create clones, then set next/random.", link: "https://leetcode.com/problems/copy-list-with-random-pointer/", video: "https://www.youtube.com/watch?v=4GOR9pwYFl4", solution: `public Node copyRandomList(Node head) {
     Map<Node,Node> map=new HashMap<>();
     Node cur=head;
     while(cur!=null){map.put(cur,new Node(cur.val));cur=cur.next;}
@@ -501,7 +501,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return map.get(head);
 }`},
   {
-    id: 50, name: "Reverse Linked List II", topic: "Linked List", difficulty: "Medium", pattern: "In-place Reversal", approach: "Navigate to position left; reverse m nodes using prev/curr pointers.", link: "https://leetcode.com/problems/reverse-linked-list-ii/", solution: `public ListNode reverseBetween(ListNode head, int left, int right) {
+    id: 50, name: "Reverse Linked List II", topic: "Linked List", difficulty: "Medium", pattern: "In-place Reversal", approach: "Navigate to position left; reverse m nodes using prev/curr pointers.", link: "https://leetcode.com/problems/reverse-linked-list-ii/", video: "https://www.youtube.com/watch?v=IdP8n7DWH7A", solution: `public ListNode reverseBetween(ListNode head, int left, int right) {
     ListNode dummy=new ListNode(0); dummy.next=head;
     ListNode pre=dummy;
     for(int i=0;i<left-1;i++) pre=pre.next;
@@ -513,7 +513,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return dummy.next;
 }`},
   {
-    id: 51, name: "Reverse Nodes in k-Group", topic: "Linked List", difficulty: "Hard", pattern: "In-place Reversal / Recursion", approach: "Count k nodes; reverse group; recurse on remaining.", link: "https://leetcode.com/problems/reverse-nodes-in-k-group/", solution: `public ListNode reverseKGroup(ListNode head, int k) {
+    id: 51, name: "Reverse Nodes in k-Group", topic: "Linked List", difficulty: "Hard", pattern: "In-place Reversal / Recursion", approach: "Count k nodes; reverse group; recurse on remaining.", link: "https://leetcode.com/problems/reverse-nodes-in-k-group/", video: "https://www.youtube.com/watch?v=6HKMf06UXcY", solution: `public ListNode reverseKGroup(ListNode head, int k) {
     ListNode cur=head; int cnt=0;
     while(cur!=null&&cnt<k){cur=cur.next;cnt++;}
     if(cnt<k) return head;
@@ -523,7 +523,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return prev;
 }`},
   {
-    id: 52, name: "Remove Nth Node From End of List", topic: "Linked List", difficulty: "Medium", pattern: "Two Pointers (Fast/Slow)", approach: "Fast pointer advances n+1 steps; then both move until fast is null.", link: "https://leetcode.com/problems/remove-nth-node-from-end-of-list/", solution: `public ListNode removeNthFromEnd(ListNode head, int n) {
+    id: 52, name: "Remove Nth Node From End of List", topic: "Linked List", difficulty: "Medium", pattern: "Two Pointers (Fast/Slow)", approach: "Fast pointer advances n+1 steps; then both move until fast is null.", link: "https://leetcode.com/problems/remove-nth-node-from-end-of-list/", video: "https://www.youtube.com/watch?v=wQwUbGd4g2w", solution: `public ListNode removeNthFromEnd(ListNode head, int n) {
     ListNode dummy=new ListNode(0); dummy.next=head;
     ListNode f=dummy,s=dummy;
     for(int i=0;i<=n;i++) f=f.next;
@@ -532,7 +532,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return dummy.next;
 }`},
   {
-    id: 53, name: "Remove Duplicates from Sorted List II", topic: "Linked List", difficulty: "Medium", pattern: "Two Pointers", approach: "Skip all nodes that have duplicates; keep only non-repeated nodes.", link: "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/", solution: `public ListNode deleteDuplicates(ListNode head) {
+    id: 53, name: "Remove Duplicates from Sorted List II", topic: "Linked List", difficulty: "Medium", pattern: "Two Pointers", approach: "Skip all nodes that have duplicates; keep only non-repeated nodes.", link: "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/", video: "https://www.youtube.com/watch?v=tMebrMNgN_4", solution: `public ListNode deleteDuplicates(ListNode head) {
     ListNode dummy=new ListNode(0); dummy.next=head; ListNode pre=dummy;
     while(pre.next!=null){
         ListNode cur=pre.next;
@@ -542,7 +542,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return dummy.next;
 }`},
   {
-    id: 54, name: "Rotate List", topic: "Linked List", difficulty: "Medium", pattern: "Cycle + Break", approach: "Connect tail to head; break at (n - k%n - 1)th node.", link: "https://leetcode.com/problems/rotate-list/", solution: `public ListNode rotateRight(ListNode head, int k) {
+    id: 54, name: "Rotate List", topic: "Linked List", difficulty: "Medium", pattern: "Cycle + Break", approach: "Connect tail to head; break at (n - k%n - 1)th node.", link: "https://leetcode.com/problems/rotate-list/", video: "https://www.youtube.com/watch?v=OtyXpnBxH0w", solution: `public ListNode rotateRight(ListNode head, int k) {
     if(head==null) return null;
     int n=1; ListNode tail=head;
     while(tail.next!=null){tail=tail.next;n++;}
@@ -553,7 +553,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return newHead;
 }`},
   {
-    id: 55, name: "Partition List", topic: "Linked List", difficulty: "Medium", pattern: "Two-pointer / Two Lists", approach: "Maintain two dummy-headed lists: less-than-x and greater-or-equal-x.", link: "https://leetcode.com/problems/partition-list/", solution: `public ListNode partition(ListNode head, int x) {
+    id: 55, name: "Partition List", topic: "Linked List", difficulty: "Medium", pattern: "Two-pointer / Two Lists", approach: "Maintain two dummy-headed lists: less-than-x and greater-or-equal-x.", link: "https://leetcode.com/problems/partition-list/", video: "https://www.youtube.com/watch?v=FlMu7kdhoe8", solution: `public ListNode partition(ListNode head, int x) {
     ListNode d1=new ListNode(0),d2=new ListNode(0),l=d1,g=d2,cur=head;
     while(cur!=null){
         if(cur.val<x){l.next=cur;l=l.next;}
@@ -564,7 +564,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return d1.next;
 }`},
   {
-    id: 56, name: "LRU Cache", topic: "Linked List", difficulty: "Medium", pattern: "HashMap + Doubly Linked List", approach: "Map gives O(1) access; DLL gives O(1) move-to-front and eviction.", link: "https://leetcode.com/problems/lru-cache/", solution: `class LRUCache {
+    id: 56, name: "LRU Cache", topic: "Linked List", difficulty: "Medium", pattern: "HashMap + Doubly Linked List", approach: "Map gives O(1) access; DLL gives O(1) move-to-front and eviction.", link: "https://leetcode.com/problems/lru-cache/", video: "https://www.youtube.com/watch?v=4X-rZ8qSmG4", solution: `class LRUCache {
     int cap; Map<Integer,int[]> map=new LinkedHashMap<>();
     LRUCache(int c){cap=c;}
     public int get(int key){
@@ -577,19 +577,19 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     }
 }`},
   {
-    id: 57, name: "Find intersection point of Y LinkedList", topic: "Linked List", difficulty: "Medium", pattern: "Two Pointers", approach: "Both pointers traverse their list then switch; they meet at intersection.", link: "https://leetcode.com/problems/intersection-of-two-linked-lists/", solution: `public ListNode getIntersectionNode(ListNode a, ListNode b) {
+    id: 57, name: "Find intersection point of Y LinkedList", topic: "Linked List", difficulty: "Medium", pattern: "Two Pointers", approach: "Both pointers traverse their list then switch; they meet at intersection.", link: "https://leetcode.com/problems/intersection-of-two-linked-lists/", video: "https://www.youtube.com/watch?v=MhAevV-BxrM", solution: `public ListNode getIntersectionNode(ListNode a, ListNode b) {
     ListNode p=a,q=b;
     while(p!=q){p=(p==null?b:p.next);q=(q==null?a:q.next);}
     return p;
 }`},
   {
-    id: 58, name: "Detect a cycle in Linked List", topic: "Linked List", difficulty: "Medium", pattern: "Floyd's Cycle Detection", approach: "Fast/slow pointers meet → cycle exists.", link: "https://leetcode.com/problems/linked-list-cycle/", solution: `public boolean hasCycle(ListNode head) {
+    id: 58, name: "Detect a cycle in Linked List", topic: "Linked List", difficulty: "Medium", pattern: "Floyd's Cycle Detection", approach: "Fast/slow pointers meet → cycle exists.", link: "https://leetcode.com/problems/linked-list-cycle/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public boolean hasCycle(ListNode head) {
     ListNode s=head,f=head;
     while(f!=null&&f.next!=null){s=s.next;f=f.next.next;if(s==f)return true;}
     return false;
 }`},
   {
-    id: 59, name: "Reverse a LinkedList in groups of size k", topic: "Linked List", difficulty: "Hard", pattern: "In-place Reversal", approach: "Count k nodes, reverse group, recurse.", link: "https://leetcode.com/problems/reverse-nodes-in-k-group/", solution: `public ListNode reverseKGroup(ListNode head, int k) {
+    id: 59, name: "Reverse a LinkedList in groups of size k", topic: "Linked List", difficulty: "Hard", pattern: "In-place Reversal", approach: "Count k nodes, reverse group, recurse.", link: "https://leetcode.com/problems/reverse-nodes-in-k-group/", video: "https://www.youtube.com/watch?v=6HKMf06UXcY", solution: `public ListNode reverseKGroup(ListNode head, int k) {
     ListNode cur=head; int cnt=0;
     while(cur!=null&&cnt<k){cur=cur.next;cnt++;}
     if(cnt<k) return head;
@@ -599,7 +599,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return prev;
 }`},
   {
-    id: 60, name: "Check if a LinkedList is palindrome or not", topic: "Linked List", difficulty: "Medium", pattern: "Fast/Slow Pointer + Reverse", approach: "Find middle, reverse second half, compare both halves.", link: "https://leetcode.com/problems/palindrome-linked-list/", solution: `public boolean isPalindrome(ListNode head) {
+    id: 60, name: "Check if a LinkedList is palindrome or not", topic: "Linked List", difficulty: "Medium", pattern: "Fast/Slow Pointer + Reverse", approach: "Find middle, reverse second half, compare both halves.", link: "https://leetcode.com/problems/palindrome-linked-list/", video: "https://www.youtube.com/watch?v=SJCPHSP6--g", solution: `public boolean isPalindrome(ListNode head) {
     ListNode s=head,f=head;
     while(f!=null&&f.next!=null){s=s.next;f=f.next.next;}
     ListNode prev=null,cur=s;
@@ -608,13 +608,13 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return true;
 }`},
   {
-    id: 61, name: "Find the starting point of the Loop of LinkedList", topic: "Linked List", difficulty: "Medium", pattern: "Floyd's Cycle + Math", approach: "After meeting, reset one pointer to head; advance both by 1 to find entry.", link: "https://leetcode.com/problems/linked-list-cycle-ii/", solution: `public ListNode detectCycle(ListNode head) {
+    id: 61, name: "Find the starting point of the Loop of LinkedList", topic: "Linked List", difficulty: "Medium", pattern: "Floyd's Cycle + Math", approach: "After meeting, reset one pointer to head; advance both by 1 to find entry.", link: "https://leetcode.com/problems/linked-list-cycle-ii/", video: "https://www.youtube.com/watch?v=00ePjzq_76w", solution: `public ListNode detectCycle(ListNode head) {
     ListNode s=head,f=head;
     while(f!=null&&f.next!=null){s=s.next;f=f.next.next;if(s==f){s=head;while(s!=f){s=s.next;f=f.next;}return s;}}
     return null;
 }`},
   {
-    id: 62, name: "Flattening of a LinkedList", topic: "Linked List", difficulty: "Hard", pattern: "Recursion + Merge", approach: "Recursively flatten next, then merge current child list with it.", link: "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/", solution: `public Node flatten(Node head) {
+    id: 62, name: "Flattening of a LinkedList", topic: "Linked List", difficulty: "Hard", pattern: "Recursion + Merge", approach: "Recursively flatten next, then merge current child list with it.", link: "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/", video: "https://www.youtube.com/watch?v=pcMDbIP-c5Y", solution: `public Node flatten(Node head) {
     if(head==null) return null;
     Node cur=head;
     while(cur!=null){
@@ -629,7 +629,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return head;
 }`},
   {
-    id: 63, name: "Valid Parentheses", topic: "Stack", difficulty: "Easy", pattern: "Stack", approach: "Push open brackets; on close bracket check stack top matches.", link: "https://leetcode.com/problems/valid-parentheses/", solution: `public boolean isValid(String s) {
+    id: 63, name: "Valid Parentheses", topic: "Stack", difficulty: "Easy", pattern: "Stack", approach: "Push open brackets; on close bracket check stack top matches.", link: "https://leetcode.com/problems/valid-parentheses/", video: "https://www.youtube.com/watch?v=YqF-7Z8uFSk", solution: `public boolean isValid(String s) {
     Deque<Character> st=new ArrayDeque<>();
     for(char c:s.toCharArray()){
         if(c=='('||c=='['||c=='{') st.push(c);
@@ -642,7 +642,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return st.isEmpty();
 }`},
   {
-    id: 64, name: "Simplify Path", topic: "Stack", difficulty: "Medium", pattern: "Stack + String Parsing", approach: "Split by '/'; push dirs, pop on '..', ignore '.' and empty.", link: "https://leetcode.com/problems/simplify-path/", solution: `public String simplifyPath(String path) {
+    id: 64, name: "Simplify Path", topic: "Stack", difficulty: "Medium", pattern: "Stack + String Parsing", approach: "Split by '/'; push dirs, pop on '..', ignore '.' and empty.", link: "https://leetcode.com/problems/simplify-path/", video: "https://www.youtube.com/watch?v=mqAr4Xw4H0g", solution: `public String simplifyPath(String path) {
     Deque<String> st=new ArrayDeque<>();
     for(String p:path.split("/")){
         if(p.equals("..")){if(!st.isEmpty())st.pop();}
@@ -653,7 +653,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return sb.length()==0?"/":sb.toString();
 }`},
   {
-    id: 65, name: "Min Stack", topic: "Stack", difficulty: "Medium", pattern: "Stack with Auxiliary Stack", approach: "Maintain a secondary stack that tracks current minimum at each level.", link: "https://leetcode.com/problems/min-stack/", solution: `class MinStack {
+    id: 65, name: "Min Stack", topic: "Stack", difficulty: "Medium", pattern: "Stack with Auxiliary Stack", approach: "Maintain a secondary stack that tracks current minimum at each level.", link: "https://leetcode.com/problems/min-stack/", video: "https://www.youtube.com/watch?v=eTRrvd9O-YA", solution: `class MinStack {
     Deque<Integer> st=new ArrayDeque<>(), minSt=new ArrayDeque<>();
     public void push(int v){
         st.push(v);
@@ -664,7 +664,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     public int getMin(){return minSt.peek();}
 }`},
   {
-    id: 66, name: "Evaluate Reverse Polish Notation", topic: "Stack", difficulty: "Medium", pattern: "Stack", approach: "Push numbers; on operator pop two, compute, push result.", link: "https://leetcode.com/problems/evaluate-reverse-polish-notation/", solution: `public int evalRPN(String[] tokens) {
+    id: 66, name: "Evaluate Reverse Polish Notation", topic: "Stack", difficulty: "Medium", pattern: "Stack", approach: "Push numbers; on operator pop two, compute, push result.", link: "https://leetcode.com/problems/evaluate-reverse-polish-notation/", video: "https://www.youtube.com/watch?v=RUduFgS0VpY", solution: `public int evalRPN(String[] tokens) {
     Deque<Integer> st=new ArrayDeque<>();
     for(String t:tokens){
         if("+-*/".contains(t)){
@@ -675,7 +675,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return st.pop();
 }`},
   {
-    id: 67, name: "Basic Calculator", topic: "Stack", difficulty: "Hard", pattern: "Stack + Recursion", approach: "Use stack to handle parentheses; track sign and running result.", link: "https://leetcode.com/problems/basic-calculator/", solution: `public int calculate(String s) {
+    id: 67, name: "Basic Calculator", topic: "Stack", difficulty: "Hard", pattern: "Stack + Recursion", approach: "Use stack to handle parentheses; track sign and running result.", link: "https://leetcode.com/problems/basic-calculator/", video: "https://www.youtube.com/watch?v=jB33o-9tM-8", solution: `public int calculate(String s) {
     Deque<Integer> st=new ArrayDeque<>();
     int res=0,sign=1,num=0;
     for(char c:s.toCharArray()){
@@ -688,7 +688,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return res+sign*num;
 }`},
   {
-    id: 68, name: "Largest Rectangle in a Histogram", topic: "Stack", difficulty: "Medium", pattern: "Monotonic Stack", approach: "Use a stack of indices in increasing height order; pop and compute area when smaller bar found.", link: "https://leetcode.com/problems/largest-rectangle-in-histogram/", solution: `public int largestRectangleArea(int[] h) {
+    id: 68, name: "Largest Rectangle in a Histogram", topic: "Stack", difficulty: "Medium", pattern: "Monotonic Stack", approach: "Use a stack of indices in increasing height order; pop and compute area when smaller bar found.", link: "https://leetcode.com/problems/largest-rectangle-in-histogram/", video: "https://www.youtube.com/watch?v=UrcdK7issCU", solution: `public int largestRectangleArea(int[] h) {
     Deque<Integer> st=new ArrayDeque<>(); int max=0;
     int[] heights=Arrays.copyOf(h,h.length+1);
     for(int i=0;i<heights.length;i++){
@@ -702,7 +702,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return max;
 }`},
   {
-    id: 69, name: "Sliding Window Maximum", topic: "Stack", difficulty: "Hard", pattern: "Monotonic Deque", approach: "Maintain deque of indices in decreasing order; front is always the max.", link: "https://leetcode.com/problems/sliding-window-maximum/", solution: `public int[] maxSlidingWindow(int[] nums, int k) {
+    id: 69, name: "Sliding Window Maximum", topic: "Stack", difficulty: "Hard", pattern: "Monotonic Deque", approach: "Maintain deque of indices in decreasing order; front is always the max.", link: "https://leetcode.com/problems/sliding-window-maximum/", video: "https://www.youtube.com/watch?v=G5uTHnMPK7g", solution: `public int[] maxSlidingWindow(int[] nums, int k) {
     Deque<Integer> dq=new ArrayDeque<>();
     int[] res=new int[nums.length-k+1];
     for(int i=0;i<nums.length;i++){
@@ -714,7 +714,7 @@ public void mergeWithoutExtra(long[] a, long[] b, int n, int m) {
     return res;
 }`},
   {
-    id: 70, name: "Implement Min Stack", topic: "Stack", difficulty: "Medium", pattern: "Stack with Auxiliary Stack", approach: "Same as Min Stack (#65).", link: "https://leetcode.com/problems/min-stack/", solution: `// Same solution as Min Stack
+    id: 70, name: "Implement Min Stack", topic: "Stack", difficulty: "Medium", pattern: "Stack with Auxiliary Stack", approach: "Same as Min Stack (#65).", link: "https://leetcode.com/problems/min-stack/", video: "https://www.youtube.com/watch?v=eTRrvd9O-YA", solution: `// Same solution as Min Stack
 class MinStack {
     Deque<Integer> st=new ArrayDeque<>(), minSt=new ArrayDeque<>();
     public void push(int v){st.push(v);minSt.push(minSt.isEmpty()?v:Math.min(v,minSt.peek()));}
@@ -723,7 +723,7 @@ class MinStack {
     public int getMin(){return minSt.peek();}
 }`},
   {
-    id: 71, name: "Rotten Orange (Using BFS)", topic: "Stack", difficulty: "Medium", pattern: "BFS / Multi-source BFS", approach: "Start BFS from all rotten oranges simultaneously; track time (levels).", link: "https://leetcode.com/problems/rotting-oranges/", solution: `public int orangesRotting(int[][] grid) {
+    id: 71, name: "Rotten Orange (Using BFS)", topic: "Stack", difficulty: "Medium", pattern: "BFS / Multi-source BFS", approach: "Start BFS from all rotten oranges simultaneously; track time (levels).", link: "https://leetcode.com/problems/rotting-oranges/", video: "https://www.youtube.com/watch?v=ioeYJZNh3hU", solution: `public int orangesRotting(int[][] grid) {
     Queue<int[]> q=new LinkedList<>();int fresh=0,time=0;
     int m=grid.length,n=grid[0].length;
     for(int i=0;i<m;i++) for(int j=0;j<n;j++){
@@ -744,7 +744,7 @@ class MinStack {
     return fresh==0?time:-1;
 }`},
   {
-    id: 72, name: "Stock Span Problem", topic: "Stack", difficulty: "Medium", pattern: "Monotonic Stack", approach: "Stack stores indices of days with higher prices; span = current index - stack top.", link: "https://leetcode.com/problems/online-stock-span/", solution: `class StockSpanner {
+    id: 72, name: "Stock Span Problem", topic: "Stack", difficulty: "Medium", pattern: "Monotonic Stack", approach: "Stack stores indices of days with higher prices; span = current index - stack top.", link: "https://leetcode.com/problems/online-stock-span/", video: "https://www.youtube.com/watch?v=rHf_80TwC2M", solution: `class StockSpanner {
     Deque<int[]> st=new ArrayDeque<>();
     public int next(int price) {
         int span=1;
@@ -754,7 +754,7 @@ class MinStack {
     }
 }`},
   {
-    id: 73, name: "Find the Maximum of Minimums of Every Window Size", topic: "Stack", difficulty: "Medium", pattern: "Monotonic Stack", approach: "For each element find prev/next smaller to determine windows where it's minimum.", link: "https://leetcode.com/problems/sum-of-subarray-minimums/", solution: `public int[] maxMinWindow(int[] arr) {
+    id: 73, name: "Find the Maximum of Minimums of Every Window Size", topic: "Stack", difficulty: "Medium", pattern: "Monotonic Stack", approach: "For each element find prev/next smaller to determine windows where it's minimum.", link: "https://leetcode.com/problems/sum-of-subarray-minimums/", video: "https://www.youtube.com/watch?v=dJB9bUSdQB0", solution: `public int[] maxMinWindow(int[] arr) {
     int n=arr.length; int[] res=new int[n+1], left=new int[n], right=new int[n];
     Deque<Integer> st=new ArrayDeque<>();
     for(int i=0;i<n;i++){while(!st.isEmpty()&&arr[st.peek()]>=arr[i])st.pop();left[i]=st.isEmpty()?-1:st.peek();st.push(i);}
@@ -765,7 +765,7 @@ class MinStack {
     return Arrays.copyOfRange(res,1,n+1);
 }`},
   {
-    id: 74, name: "The Celebrity Problem", topic: "Stack", difficulty: "Hard", pattern: "Two Pointers / Elimination", approach: "Eliminate non-celebrities: if A knows B, A can't be celebrity; otherwise B can't.", link: "https://leetcode.com/problems/find-the-celebrity/", solution: `public int findCelebrity(int n) {
+    id: 74, name: "The Celebrity Problem", topic: "Stack", difficulty: "Hard", pattern: "Two Pointers / Elimination", approach: "Eliminate non-celebrities: if A knows B, A can't be celebrity; otherwise B can't.", link: "https://leetcode.com/problems/find-the-celebrity/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int findCelebrity(int n) {
     int cand=0;
     for(int i=1;i<n;i++) if(knows(cand,i)) cand=i;
     for(int i=0;i<n;i++){
@@ -774,7 +774,7 @@ class MinStack {
     return cand;
 }`},
   {
-    id: 75, name: "Subset Sums", topic: "Recursion", difficulty: "Medium", pattern: "Backtracking", approach: "At each index: include or exclude element. Recurse on both choices.", link: "https://leetcode.com/problems/subsets/", solution: `public List<List<Integer>> subsets(int[] nums) {
+    id: 75, name: "Subset Sums", topic: "Recursion", difficulty: "Medium", pattern: "Backtracking", approach: "At each index: include or exclude element. Recurse on both choices.", link: "https://leetcode.com/problems/subsets/", video: "https://www.youtube.com/watch?v=H6_thLUm-FI", solution: `public List<List<Integer>> subsets(int[] nums) {
     List<List<Integer>> res=new ArrayList<>();
     backtrack(nums,0,new ArrayList<>(),res);
     return res;
@@ -784,7 +784,7 @@ private void backtrack(int[] nums,int idx,List<Integer> cur,List<List<Integer>> 
     for(int i=idx;i<nums.length;i++){cur.add(nums[i]);backtrack(nums,i+1,cur,res);cur.remove(cur.size()-1);}
 }`},
   {
-    id: 76, name: "Subset-II", topic: "Recursion", difficulty: "Medium", pattern: "Backtracking + Skip Duplicates", approach: "Sort first; skip duplicate elements at same recursion level.", link: "https://leetcode.com/problems/subsets-ii/", solution: `public List<List<Integer>> subsetsWithDup(int[] nums) {
+    id: 76, name: "Subset-II", topic: "Recursion", difficulty: "Medium", pattern: "Backtracking + Skip Duplicates", approach: "Sort first; skip duplicate elements at same recursion level.", link: "https://leetcode.com/problems/subsets-ii/", video: "https://www.youtube.com/watch?v=0wQz9LOwlGs", solution: `public List<List<Integer>> subsetsWithDup(int[] nums) {
     Arrays.sort(nums); List<List<Integer>> res=new ArrayList<>();
     backtrack(nums,0,new ArrayList<>(),res); return res;
 }
@@ -796,7 +796,7 @@ private void backtrack(int[] nums,int idx,List<Integer> cur,List<List<Integer>> 
     }
 }`},
   {
-    id: 77, name: "Combination Sum-1", topic: "Recursion", difficulty: "Medium", pattern: "Backtracking", approach: "Can reuse same element; continue from same index. Prune when sum > target.", link: "https://leetcode.com/problems/combination-sum/", solution: `public List<List<Integer>> combinationSum(int[] candidates, int target) {
+    id: 77, name: "Combination Sum-1", topic: "Recursion", difficulty: "Medium", pattern: "Backtracking", approach: "Can reuse same element; continue from same index. Prune when sum > target.", link: "https://leetcode.com/problems/combination-sum/", video: "https://www.youtube.com/watch?v=ZXJ8wUmBYaM", solution: `public List<List<Integer>> combinationSum(int[] candidates, int target) {
     List<List<Integer>> res=new ArrayList<>();
     backtrack(candidates,0,target,new ArrayList<>(),res); return res;
 }
@@ -807,7 +807,7 @@ private void backtrack(int[] c,int idx,int rem,List<Integer> cur,List<List<Integ
     }
 }`},
   {
-    id: 78, name: "Combination Sum-2", topic: "Recursion", difficulty: "Medium", pattern: "Backtracking + Skip Duplicates", approach: "Sort; skip duplicates at same level; each element used once.", link: "https://leetcode.com/problems/combination-sum-ii/", solution: `public List<List<Integer>> combinationSum2(int[] c, int target) {
+    id: 78, name: "Combination Sum-2", topic: "Recursion", difficulty: "Medium", pattern: "Backtracking + Skip Duplicates", approach: "Sort; skip duplicates at same level; each element used once.", link: "https://leetcode.com/problems/combination-sum-ii/", video: "https://www.youtube.com/watch?v=Ik2nvoKFGuU", solution: `public List<List<Integer>> combinationSum2(int[] c, int target) {
     Arrays.sort(c); List<List<Integer>> res=new ArrayList<>();
     backtrack(c,0,target,new ArrayList<>(),res); return res;
 }
@@ -820,7 +820,7 @@ private void backtrack(int[] c,int idx,int rem,List<Integer> cur,List<List<Integ
     }
 }`},
   {
-    id: 79, name: "Palindrome Partitioning", topic: "Recursion", difficulty: "Medium", pattern: "Backtracking + DP", approach: "Try every prefix; if palindrome, recurse on remaining string.", link: "https://leetcode.com/problems/palindrome-partitioning/", solution: `public List<List<String>> partition(String s) {
+    id: 79, name: "Palindrome Partitioning", topic: "Recursion", difficulty: "Medium", pattern: "Backtracking + DP", approach: "Try every prefix; if palindrome, recurse on remaining string.", link: "https://leetcode.com/problems/palindrome-partitioning/", video: "https://www.youtube.com/watch?v=fRxo5QxWEbQ", solution: `public List<List<String>> partition(String s) {
     List<List<String>> res=new ArrayList<>();
     backtrack(s,0,new ArrayList<>(),res); return res;
 }
@@ -833,7 +833,7 @@ private void backtrack(String s,int idx,List<String> cur,List<List<String>> res)
 }
 private boolean isPalin(String s){int l=0,r=s.length()-1;while(l<r)if(s.charAt(l++)!=s.charAt(r--))return false;return true;}`},
   {
-    id: 80, name: "K-th Permutation Sequence", topic: "Recursion", difficulty: "Hard", pattern: "Math / Factoradic", approach: "Use factorial to determine which digit goes at each position.", link: "https://leetcode.com/problems/permutation-sequence/", solution: `public String getPermutation(int n, int k) {
+    id: 80, name: "K-th Permutation Sequence", topic: "Recursion", difficulty: "Hard", pattern: "Math / Factoradic", approach: "Use factorial to determine which digit goes at each position.", link: "https://leetcode.com/problems/permutation-sequence/", video: "https://www.youtube.com/watch?v=M97wIlUZWUE", solution: `public String getPermutation(int n, int k) {
     int[] fact=new int[n+1]; fact[0]=1;
     List<Integer> nums=new ArrayList<>();
     for(int i=1;i<=n;i++){fact[i]=fact[i-1]*i;nums.add(i);}
@@ -845,24 +845,24 @@ private boolean isPalin(String s){int l=0,r=s.length()-1;while(l<r)if(s.charAt(l
     return sb.toString();
 }`},
   {
-    id: 81, name: "Maximum Depth of Binary Tree", topic: "Binary Tree", difficulty: "Easy", pattern: "DFS Recursion", approach: "max(leftDepth, rightDepth) + 1.", link: "https://leetcode.com/problems/maximum-depth-of-binary-tree/", solution: `public int maxDepth(TreeNode root) {
+    id: 81, name: "Maximum Depth of Binary Tree", topic: "Binary Tree", difficulty: "Easy", pattern: "DFS Recursion", approach: "max(leftDepth, rightDepth) + 1.", link: "https://leetcode.com/problems/maximum-depth-of-binary-tree/", video: "https://www.youtube.com/watch?v=JAph0AjfYYI", solution: `public int maxDepth(TreeNode root) {
     if(root==null) return 0;
     return 1+Math.max(maxDepth(root.left),maxDepth(root.right));
 }`},
   {
-    id: 82, name: "Same Tree", topic: "Binary Tree", difficulty: "Easy", pattern: "DFS Recursion", approach: "Both null → true; one null or vals differ → false; recurse on children.", link: "https://leetcode.com/problems/same-tree/", solution: `public boolean isSameTree(TreeNode p, TreeNode q) {
+    id: 82, name: "Same Tree", topic: "Binary Tree", difficulty: "Easy", pattern: "DFS Recursion", approach: "Both null → true; one null or vals differ → false; recurse on children.", link: "https://leetcode.com/problems/same-tree/", video: "https://www.youtube.com/watch?v=JAph0AjfYYI", solution: `public boolean isSameTree(TreeNode p, TreeNode q) {
     if(p==null&&q==null) return true;
     if(p==null||q==null||p.val!=q.val) return false;
     return isSameTree(p.left,q.left)&&isSameTree(p.right,q.right);
 }`},
   {
-    id: 83, name: "Invert Binary Tree", topic: "Binary Tree", difficulty: "Easy", pattern: "DFS Recursion", approach: "Swap left and right children, recurse on both.", link: "https://leetcode.com/problems/invert-binary-tree/", solution: `public TreeNode invertTree(TreeNode root) {
+    id: 83, name: "Invert Binary Tree", topic: "Binary Tree", difficulty: "Easy", pattern: "DFS Recursion", approach: "Swap left and right children, recurse on both.", link: "https://leetcode.com/problems/invert-binary-tree/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public TreeNode invertTree(TreeNode root) {
     if(root==null) return null;
     TreeNode t=root.left; root.left=invertTree(root.right); root.right=invertTree(t);
     return root;
 }`},
   {
-    id: 84, name: "Symmetric Tree", topic: "Binary Tree", difficulty: "Easy", pattern: "DFS Recursion", approach: "Compare mirror nodes: left.left with right.right and left.right with right.left.", link: "https://leetcode.com/problems/symmetric-tree/", solution: `public boolean isSymmetric(TreeNode root) {
+    id: 84, name: "Symmetric Tree", topic: "Binary Tree", difficulty: "Easy", pattern: "DFS Recursion", approach: "Compare mirror nodes: left.left with right.right and left.right with right.left.", link: "https://leetcode.com/problems/symmetric-tree/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public boolean isSymmetric(TreeNode root) {
     return check(root.left,root.right);
 }
 private boolean check(TreeNode l, TreeNode r){
@@ -871,7 +871,7 @@ private boolean check(TreeNode l, TreeNode r){
     return check(l.left,r.right)&&check(l.right,r.left);
 }`},
   {
-    id: 85, name: "Construct Binary Tree from Preorder and Inorder Traversal", topic: "Binary Tree", difficulty: "Medium", pattern: "Recursion + HashMap", approach: "Preorder[0] = root; find in inorder to split left/right subtrees.", link: "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/", solution: `public TreeNode buildTree(int[] pre, int[] in) {
+    id: 85, name: "Construct Binary Tree from Preorder and Inorder Traversal", topic: "Binary Tree", difficulty: "Medium", pattern: "Recursion + HashMap", approach: "Preorder[0] = root; find in inorder to split left/right subtrees.", link: "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public TreeNode buildTree(int[] pre, int[] in) {
     Map<Integer,Integer> map=new HashMap<>();
     for(int i=0;i<in.length;i++) map.put(in[i],i);
     return build(pre,0,pre.length-1,0,in.length-1,map);
@@ -885,7 +885,7 @@ private TreeNode build(int[] pre,int ps,int pe,int is,int ie,Map<Integer,Integer
     return root;
 }`},
   {
-    id: 86, name: "Construct Binary Tree from Inorder and Postorder Traversal", topic: "Binary Tree", difficulty: "Medium", pattern: "Recursion + HashMap", approach: "Postorder last = root; split inorder around root.", link: "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/", solution: `public TreeNode buildTree(int[] in, int[] post) {
+    id: 86, name: "Construct Binary Tree from Inorder and Postorder Traversal", topic: "Binary Tree", difficulty: "Medium", pattern: "Recursion + HashMap", approach: "Postorder last = root; split inorder around root.", link: "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public TreeNode buildTree(int[] in, int[] post) {
     Map<Integer,Integer> map=new HashMap<>();
     for(int i=0;i<in.length;i++) map.put(in[i],i);
     return build(in,0,in.length-1,post,0,post.length-1,map);
@@ -899,7 +899,7 @@ private TreeNode build(int[] in,int is,int ie,int[] post,int ps,int pe,Map<Integ
     return root;
 }`},
   {
-    id: 87, name: "Populating Next Right Pointers in Each Node II", topic: "Binary Tree", difficulty: "Medium", pattern: "BFS Level Order", approach: "Process nodes level by level using BFS; link next pointers across each level.", link: "https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/", solution: `public Node connect(Node root) {
+    id: 87, name: "Populating Next Right Pointers in Each Node II", topic: "Binary Tree", difficulty: "Medium", pattern: "BFS Level Order", approach: "Process nodes level by level using BFS; link next pointers across each level.", link: "https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public Node connect(Node root) {
     if(root==null) return null;
     Queue<Node> q=new LinkedList<>(); q.offer(root);
     while(!q.isEmpty()){
@@ -914,7 +914,7 @@ private TreeNode build(int[] in,int is,int ie,int[] post,int ps,int pe,Map<Integ
     return root;
 }`},
   {
-    id: 88, name: "Flatten Binary Tree to Linked List", topic: "Binary Tree", difficulty: "Medium", pattern: "Morris Traversal / Reverse Postorder", approach: "Traverse in reverse postorder (right→left→root); attach each node as head.right.", link: "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/", solution: `public void flatten(TreeNode root) {
+    id: 88, name: "Flatten Binary Tree to Linked List", topic: "Binary Tree", difficulty: "Medium", pattern: "Morris Traversal / Reverse Postorder", approach: "Traverse in reverse postorder (right→left→root); attach each node as head.right.", link: "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public void flatten(TreeNode root) {
     TreeNode cur=root,prev=null;
     while(cur!=null){
         if(cur.left!=null){
@@ -926,13 +926,13 @@ private TreeNode build(int[] in,int is,int ie,int[] post,int ps,int pe,Map<Integ
     }
 }`},
   {
-    id: 89, name: "Path Sum", topic: "Binary Tree", difficulty: "Easy", pattern: "DFS Recursion", approach: "Subtract val at each node; return true if leaf with remaining sum = 0.", link: "https://leetcode.com/problems/path-sum/", solution: `public boolean hasPathSum(TreeNode root, int sum) {
+    id: 89, name: "Path Sum", topic: "Binary Tree", difficulty: "Easy", pattern: "DFS Recursion", approach: "Subtract val at each node; return true if leaf with remaining sum = 0.", link: "https://leetcode.com/problems/path-sum/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public boolean hasPathSum(TreeNode root, int sum) {
     if(root==null) return false;
     if(root.left==null&&root.right==null) return sum==root.val;
     return hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);
 }`},
   {
-    id: 90, name: "Sum Root to Leaf Numbers", topic: "Binary Tree", difficulty: "Medium", pattern: "DFS Recursion", approach: "Pass current number (num*10+node.val) down; add at leaves.", link: "https://leetcode.com/problems/sum-root-to-leaf-numbers/", solution: `public int sumNumbers(TreeNode root) { return dfs(root,0); }
+    id: 90, name: "Sum Root to Leaf Numbers", topic: "Binary Tree", difficulty: "Medium", pattern: "DFS Recursion", approach: "Pass current number (num*10+node.val) down; add at leaves.", link: "https://leetcode.com/problems/sum-root-to-leaf-numbers/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int sumNumbers(TreeNode root) { return dfs(root,0); }
 private int dfs(TreeNode n, int cur){
     if(n==null) return 0;
     cur=cur*10+n.val;
@@ -940,7 +940,7 @@ private int dfs(TreeNode n, int cur){
     return dfs(n.left,cur)+dfs(n.right,cur);
 }`},
   {
-    id: 91, name: "Binary Tree Maximum Path Sum", topic: "Binary Tree", difficulty: "Hard", pattern: "DFS + Global Max", approach: "At each node: max gain = max(left,0)+max(right,0)+val. Update global max. Return val + max(left,right,0).", link: "https://leetcode.com/problems/binary-tree-maximum-path-sum/", solution: `int max=Integer.MIN_VALUE;
+    id: 91, name: "Binary Tree Maximum Path Sum", topic: "Binary Tree", difficulty: "Hard", pattern: "DFS + Global Max", approach: "At each node: max gain = max(left,0)+max(right,0)+val. Update global max. Return val + max(left,right,0).", link: "https://leetcode.com/problems/binary-tree-maximum-path-sum/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `int max=Integer.MIN_VALUE;
 public int maxPathSum(TreeNode root) { dfs(root); return max; }
 private int dfs(TreeNode n){
     if(n==null) return 0;
@@ -949,7 +949,7 @@ private int dfs(TreeNode n){
     return n.val+Math.max(l,r);
 }`},
   {
-    id: 92, name: "Binary Search Tree Iterator", topic: "Binary Tree", difficulty: "Medium", pattern: "Controlled In-order DFS", approach: "Use stack; push left spine on init; on next(), pop, push right spine of popped node.", link: "https://leetcode.com/problems/binary-search-tree-iterator/", solution: `class BSTIterator {
+    id: 92, name: "Binary Search Tree Iterator", topic: "Binary Tree", difficulty: "Medium", pattern: "Controlled In-order DFS", approach: "Use stack; push left spine on init; on next(), pop, push right spine of popped node.", link: "https://leetcode.com/problems/binary-search-tree-iterator/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `class BSTIterator {
     Deque<TreeNode> st=new ArrayDeque<>();
     BSTIterator(TreeNode root){ pushLeft(root); }
     private void pushLeft(TreeNode n){ while(n!=null){st.push(n);n=n.left;} }
@@ -957,7 +957,7 @@ private int dfs(TreeNode n){
     public boolean hasNext(){ return !st.isEmpty(); }
 }`},
   {
-    id: 93, name: "Count Complete Tree Nodes", topic: "Binary Tree", difficulty: "Easy", pattern: "Binary Search on Height", approach: "Compare left and right heights; if equal, left subtree is perfect; recurse on other side.", link: "https://leetcode.com/problems/count-complete-tree-nodes/", solution: `public int countNodes(TreeNode root) {
+    id: 93, name: "Count Complete Tree Nodes", topic: "Binary Tree", difficulty: "Easy", pattern: "Binary Search on Height", approach: "Compare left and right heights; if equal, left subtree is perfect; recurse on other side.", link: "https://leetcode.com/problems/count-complete-tree-nodes/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int countNodes(TreeNode root) {
     if(root==null) return 0;
     int lh=0,rh=0; TreeNode l=root,r=root;
     while(l!=null){lh++;l=l.left;} while(r!=null){rh++;r=r.right;}
@@ -965,14 +965,14 @@ private int dfs(TreeNode n){
     return 1+countNodes(root.left)+countNodes(root.right);
 }`},
   {
-    id: 94, name: "Lowest Common Ancestor of a Binary Tree", topic: "Binary Tree", difficulty: "Medium", pattern: "DFS Post-order", approach: "If root matches p or q return root; LCA is where left and right both return non-null.", link: "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/", solution: `public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    id: 94, name: "Lowest Common Ancestor of a Binary Tree", topic: "Binary Tree", difficulty: "Medium", pattern: "DFS Post-order", approach: "If root matches p or q return root; LCA is where left and right both return non-null.", link: "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     if(root==null||root==p||root==q) return root;
     TreeNode left=lowestCommonAncestor(root.left,p,q);
     TreeNode right=lowestCommonAncestor(root.right,p,q);
     return left==null?right:right==null?left:root;
 }`},
   {
-    id: 95, name: "Binary Tree Right Side View", topic: "Binary Tree BFS", difficulty: "Medium", pattern: "BFS Level Order", approach: "BFS; add last node of each level to result.", link: "https://leetcode.com/problems/binary-tree-right-side-view/", solution: `public List<Integer> rightSideView(TreeNode root) {
+    id: 95, name: "Binary Tree Right Side View", topic: "Binary Tree BFS", difficulty: "Medium", pattern: "BFS Level Order", approach: "BFS; add last node of each level to result.", link: "https://leetcode.com/problems/binary-tree-right-side-view/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public List<Integer> rightSideView(TreeNode root) {
     List<Integer> res=new ArrayList<>();
     if(root==null) return res;
     Queue<TreeNode> q=new LinkedList<>(); q.offer(root);
@@ -984,7 +984,7 @@ private int dfs(TreeNode n){
     return res;
 }`},
   {
-    id: 96, name: "Average of Levels in Binary Tree", topic: "Binary Tree BFS", difficulty: "Easy", pattern: "BFS Level Order", approach: "BFS; compute average of each level.", link: "https://leetcode.com/problems/average-of-levels-in-binary-tree/", solution: `public List<Double> averageOfLevels(TreeNode root) {
+    id: 96, name: "Average of Levels in Binary Tree", topic: "Binary Tree BFS", difficulty: "Easy", pattern: "BFS Level Order", approach: "BFS; compute average of each level.", link: "https://leetcode.com/problems/average-of-levels-in-binary-tree/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public List<Double> averageOfLevels(TreeNode root) {
     List<Double> res=new ArrayList<>();
     Queue<TreeNode> q=new LinkedList<>(); q.offer(root);
     while(!q.isEmpty()){
@@ -995,7 +995,7 @@ private int dfs(TreeNode n){
     return res;
 }`},
   {
-    id: 97, name: "Binary Tree Level Order Traversal", topic: "Binary Tree BFS", difficulty: "Medium", pattern: "BFS Level Order", approach: "BFS with level size tracking; collect each level into a list.", link: "https://leetcode.com/problems/binary-tree-level-order-traversal/", solution: `public List<List<Integer>> levelOrder(TreeNode root) {
+    id: 97, name: "Binary Tree Level Order Traversal", topic: "Binary Tree BFS", difficulty: "Medium", pattern: "BFS Level Order", approach: "BFS with level size tracking; collect each level into a list.", link: "https://leetcode.com/problems/binary-tree-level-order-traversal/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public List<List<Integer>> levelOrder(TreeNode root) {
     List<List<Integer>> res=new ArrayList<>();
     if(root==null) return res;
     Queue<TreeNode> q=new LinkedList<>(); q.offer(root);
@@ -1007,7 +1007,7 @@ private int dfs(TreeNode n){
     return res;
 }`},
   {
-    id: 98, name: "Binary Tree Zigzag Level Order Traversal", topic: "Binary Tree BFS", difficulty: "Medium", pattern: "BFS + Direction Flag", approach: "BFS; alternate adding to front/back of deque based on level parity.", link: "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/", solution: `public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+    id: 98, name: "Binary Tree Zigzag Level Order Traversal", topic: "Binary Tree BFS", difficulty: "Medium", pattern: "BFS + Direction Flag", approach: "BFS; alternate adding to front/back of deque based on level parity.", link: "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
     List<List<Integer>> res=new ArrayList<>();
     if(root==null) return res;
     Queue<TreeNode> q=new LinkedList<>(); q.offer(root); boolean ltr=true;
@@ -1019,7 +1019,7 @@ private int dfs(TreeNode n){
     return res;
 }`},
   {
-    id: 99, name: "Minimum Absolute Difference in BST", topic: "Binary Search Tree", difficulty: "Easy", pattern: "In-order Traversal", approach: "In-order gives sorted values; min diff = min of consecutive differences.", link: "https://leetcode.com/problems/minimum-absolute-difference-in-bst/", solution: `int min=Integer.MAX_VALUE,prev=-1;
+    id: 99, name: "Minimum Absolute Difference in BST", topic: "Binary Search Tree", difficulty: "Easy", pattern: "In-order Traversal", approach: "In-order gives sorted values; min diff = min of consecutive differences.", link: "https://leetcode.com/problems/minimum-absolute-difference-in-bst/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `int min=Integer.MAX_VALUE,prev=-1;
 public int getMinimumDifference(TreeNode root) {
     if(root==null) return min;
     getMinimumDifference(root.left);
@@ -1029,7 +1029,7 @@ public int getMinimumDifference(TreeNode root) {
     return min;
 }`},
   {
-    id: 100, name: "Kth Smallest Element in a BST", topic: "Binary Search Tree", difficulty: "Medium", pattern: "In-order Traversal", approach: "In-order is sorted; count and return kth node.", link: "https://leetcode.com/problems/kth-smallest-element-in-a-bst/", solution: `int cnt=0,res=0;
+    id: 100, name: "Kth Smallest Element in a BST", topic: "Binary Search Tree", difficulty: "Medium", pattern: "In-order Traversal", approach: "In-order is sorted; count and return kth node.", link: "https://leetcode.com/problems/kth-smallest-element-in-a-bst/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `int cnt=0,res=0;
 public int kthSmallest(TreeNode root, int k) {
     inorder(root,k); return res;
 }
@@ -1040,7 +1040,7 @@ private void inorder(TreeNode n, int k){
     inorder(n.right,k);
 }`},
   {
-    id: 101, name: "Validate Binary Search Tree", topic: "Binary Search Tree", difficulty: "Medium", pattern: "DFS with Range", approach: "Pass min/max bounds; every node must lie strictly within its bounds.", link: "https://leetcode.com/problems/validate-binary-search-tree/", solution: `public boolean isValidBST(TreeNode root) {
+    id: 101, name: "Validate Binary Search Tree", topic: "Binary Search Tree", difficulty: "Medium", pattern: "DFS with Range", approach: "Pass min/max bounds; every node must lie strictly within its bounds.", link: "https://leetcode.com/problems/validate-binary-search-tree/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public boolean isValidBST(TreeNode root) {
     return validate(root,Long.MIN_VALUE,Long.MAX_VALUE);
 }
 private boolean validate(TreeNode n, long min, long max){
@@ -1049,7 +1049,7 @@ private boolean validate(TreeNode n, long min, long max){
     return validate(n.left,min,n.val)&&validate(n.right,n.val,max);
 }`},
   {
-    id: 103, name: "Number of Islands", topic: "Graph", difficulty: "Medium", pattern: "DFS/BFS Grid", approach: "DFS from each unvisited '1', mark visited cells. Count DFS calls.", link: "https://leetcode.com/problems/number-of-islands/", solution: `public int numIslands(char[][] grid) {
+    id: 103, name: "Number of Islands", topic: "Graph", difficulty: "Medium", pattern: "DFS/BFS Grid", approach: "DFS from each unvisited '1', mark visited cells. Count DFS calls.", link: "https://leetcode.com/problems/number-of-islands/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int numIslands(char[][] grid) {
     int cnt=0;
     for(int i=0;i<grid.length;i++) for(int j=0;j<grid[0].length;j++)
         if(grid[i][j]=='1'){dfs(grid,i,j);cnt++;}
@@ -1060,7 +1060,7 @@ private void dfs(char[][] g,int i,int j){
     g[i][j]='0'; dfs(g,i+1,j);dfs(g,i-1,j);dfs(g,i,j+1);dfs(g,i,j-1);
 }`},
   {
-    id: 104, name: "Surrounded Regions", topic: "Graph", difficulty: "Medium", pattern: "DFS from Boundary", approach: "Mark border-connected 'O's as safe; fill remaining 'O's with 'X'.", link: "https://leetcode.com/problems/surrounded-regions/", solution: `public void solve(char[][] b) {
+    id: 104, name: "Surrounded Regions", topic: "Graph", difficulty: "Medium", pattern: "DFS from Boundary", approach: "Mark border-connected 'O's as safe; fill remaining 'O's with 'X'.", link: "https://leetcode.com/problems/surrounded-regions/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public void solve(char[][] b) {
     int m=b.length,n=b[0].length;
     for(int i=0;i<m;i++){dfs(b,i,0);dfs(b,i,n-1);}
     for(int j=0;j<n;j++){dfs(b,0,j);dfs(b,m-1,j);}
@@ -1072,7 +1072,7 @@ private void dfs(char[][] b,int i,int j){
     b[i][j]='S'; dfs(b,i+1,j);dfs(b,i-1,j);dfs(b,i,j+1);dfs(b,i,j-1);
 }`},
   {
-    id: 105, name: "Clone Graph", topic: "Graph", difficulty: "Medium", pattern: "DFS/BFS + HashMap", approach: "Map original→clone; DFS to clone all neighbors.", link: "https://leetcode.com/problems/clone-graph/", solution: `public Node cloneGraph(Node node) {
+    id: 105, name: "Clone Graph", topic: "Graph", difficulty: "Medium", pattern: "DFS/BFS + HashMap", approach: "Map original→clone; DFS to clone all neighbors.", link: "https://leetcode.com/problems/clone-graph/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public Node cloneGraph(Node node) {
     if(node==null) return null;
     Map<Node,Node> map=new HashMap<>();
     return dfs(node,map);
@@ -1084,7 +1084,7 @@ private Node dfs(Node n, Map<Node,Node> map){
     return clone;
 }`},
   {
-    id: 106, name: "Evaluate Division", topic: "Graph", difficulty: "Medium", pattern: "Weighted Graph BFS/DFS", approach: "Build weighted graph of equations; BFS/DFS to find path product.", link: "https://leetcode.com/problems/evaluate-division/", solution: `public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+    id: 106, name: "Evaluate Division", topic: "Graph", difficulty: "Medium", pattern: "Weighted Graph BFS/DFS", approach: "Build weighted graph of equations; BFS/DFS to find path product.", link: "https://leetcode.com/problems/evaluate-division/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
     Map<String,Map<String,Double>> g=new HashMap<>();
     for(int i=0;i<equations.size();i++){
         String a=equations.get(i).get(0),b=equations.get(i).get(1);
@@ -1111,7 +1111,7 @@ private double bfs(Map<String,Map<String,Double>> g,String s,String t){
     return -1.0;
 }`},
   {
-    id: 107, name: "Course Schedule", topic: "Graph", difficulty: "Medium", pattern: "Topological Sort / Cycle Detection", approach: "Build adjacency list; DFS to detect cycle (visiting → cycle exists).", link: "https://leetcode.com/problems/course-schedule/", solution: `public boolean canFinish(int n, int[][] pre) {
+    id: 107, name: "Course Schedule", topic: "Graph", difficulty: "Medium", pattern: "Topological Sort / Cycle Detection", approach: "Build adjacency list; DFS to detect cycle (visiting → cycle exists).", link: "https://leetcode.com/problems/course-schedule/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public boolean canFinish(int n, int[][] pre) {
     List<List<Integer>> g=new ArrayList<>();
     for(int i=0;i<n;i++) g.add(new ArrayList<>());
     for(int[] p:pre) g.get(p[0]).add(p[1]);
@@ -1126,7 +1126,7 @@ private boolean dfs(List<List<Integer>> g,int[] state,int node){
     state[node]=2; return false;
 }`},
   {
-    id: 108, name: "Course Schedule II", topic: "Graph", difficulty: "Medium", pattern: "Topological Sort (Kahn's / DFS)", approach: "Kahn's: track in-degree; BFS with queue of 0-in-degree nodes.", link: "https://leetcode.com/problems/course-schedule-ii/", solution: `public int[] findOrder(int n, int[][] pre) {
+    id: 108, name: "Course Schedule II", topic: "Graph", difficulty: "Medium", pattern: "Topological Sort (Kahn's / DFS)", approach: "Kahn's: track in-degree; BFS with queue of 0-in-degree nodes.", link: "https://leetcode.com/problems/course-schedule-ii/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int[] findOrder(int n, int[][] pre) {
     List<List<Integer>> g=new ArrayList<>(); int[] indeg=new int[n];
     for(int i=0;i<n;i++) g.add(new ArrayList<>());
     for(int[] p:pre){g.get(p[1]).add(p[0]);indeg[p[0]]++;}
@@ -1140,7 +1140,7 @@ private boolean dfs(List<List<Integer>> g,int[] state,int node){
     return idx==n?res:new int[]{};
 }`},
   {
-    id: 109, name: "Snakes and Ladders", topic: "Graph BFS", difficulty: "Medium", pattern: "BFS on Grid", approach: "BFS from cell 1; use board mapping to handle snakes/ladders.", link: "https://leetcode.com/problems/snakes-and-ladders/", solution: `public int snakesAndLadders(int[][] board) {
+    id: 109, name: "Snakes and Ladders", topic: "Graph BFS", difficulty: "Medium", pattern: "BFS on Grid", approach: "BFS from cell 1; use board mapping to handle snakes/ladders.", link: "https://leetcode.com/problems/snakes-and-ladders/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int snakesAndLadders(int[][] board) {
     int n=board.length; int[] flat=new int[n*n+1];
     boolean left=false; int idx=1;
     for(int i=n-1;i>=0;i--,left=!left){
@@ -1164,7 +1164,7 @@ private boolean dfs(List<List<Integer>> g,int[] state,int node){
     return -1;
 }`},
   {
-    id: 110, name: "Minimum Genetic Mutation", topic: "Graph BFS", difficulty: "Medium", pattern: "BFS Word Ladder", approach: "BFS; mutate each char to ACGT; add valid bank mutations to queue.", link: "https://leetcode.com/problems/minimum-genetic-mutation/", solution: `public int minMutation(String start, String end, String[] bank) {
+    id: 110, name: "Minimum Genetic Mutation", topic: "Graph BFS", difficulty: "Medium", pattern: "BFS Word Ladder", approach: "BFS; mutate each char to ACGT; add valid bank mutations to queue.", link: "https://leetcode.com/problems/minimum-genetic-mutation/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int minMutation(String start, String end, String[] bank) {
     Set<String> set=new HashSet<>(Arrays.asList(bank));
     Queue<String> q=new LinkedList<>(); q.offer(start); int steps=0;
     while(!q.isEmpty()){
@@ -1185,7 +1185,7 @@ private boolean dfs(List<List<Integer>> g,int[] state,int node){
     return -1;
 }`},
   {
-    id: 111, name: "Word Ladder", topic: "Graph BFS", difficulty: "Hard", pattern: "BFS Word Ladder", approach: "BFS; change each char a-z; add valid dictionary words to queue.", link: "https://leetcode.com/problems/word-ladder/", solution: `public int ladderLength(String begin, String end, List<String> wordList) {
+    id: 111, name: "Word Ladder", topic: "Graph BFS", difficulty: "Hard", pattern: "BFS Word Ladder", approach: "BFS; change each char a-z; add valid dictionary words to queue.", link: "https://leetcode.com/problems/word-ladder/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int ladderLength(String begin, String end, List<String> wordList) {
     Set<String> set=new HashSet<>(wordList);
     Queue<String> q=new LinkedList<>(); q.offer(begin); int steps=1;
     while(!q.isEmpty()){
@@ -1206,7 +1206,7 @@ private boolean dfs(List<List<Integer>> g,int[] state,int node){
     return 0;
 }`},
   {
-    id: 112, name: "Implement Trie (Prefix Tree)", topic: "Trie", difficulty: "Medium", pattern: "Trie", approach: "Node has 26 children and isEnd flag. insert/search/startsWith traverse nodes.", link: "https://leetcode.com/problems/implement-trie-prefix-tree/", solution: `class Trie {
+    id: 112, name: "Implement Trie (Prefix Tree)", topic: "Trie", difficulty: "Medium", pattern: "Trie", approach: "Node has 26 children and isEnd flag. insert/search/startsWith traverse nodes.", link: "https://leetcode.com/problems/implement-trie-prefix-tree/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `class Trie {
     Trie[] ch=new Trie[26]; boolean end;
     public void insert(String s){Trie t=this;for(char c:s.toCharArray()){int i=c-'a';if(t.ch[i]==null)t.ch[i]=new Trie();t=t.ch[i];}t.end=true;}
     public boolean search(String s){Trie t=node(s);return t!=null&&t.end;}
@@ -1214,7 +1214,7 @@ private boolean dfs(List<List<Integer>> g,int[] state,int node){
     private Trie node(String s){Trie t=this;for(char c:s.toCharArray()){int i=c-'a';if(t.ch[i]==null)return null;t=t.ch[i];}return t;}
 }`},
   {
-    id: 113, name: "Design Add and Search Words Data Structure", topic: "Trie", difficulty: "Medium", pattern: "Trie + DFS for Wildcard", approach: "Trie insert; for search, '.' triggers DFS on all 26 children.", link: "https://leetcode.com/problems/design-add-and-search-words-data-structure/", solution: `class WordDictionary {
+    id: 113, name: "Design Add and Search Words Data Structure", topic: "Trie", difficulty: "Medium", pattern: "Trie + DFS for Wildcard", approach: "Trie insert; for search, '.' triggers DFS on all 26 children.", link: "https://leetcode.com/problems/design-add-and-search-words-data-structure/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `class WordDictionary {
     WordDictionary[] ch=new WordDictionary[26]; boolean end;
     public void addWord(String s){WordDictionary t=this;for(char c:s.toCharArray()){int i=c-'a';if(t.ch[i]==null)t.ch[i]=new WordDictionary();t=t.ch[i];}t.end=true;}
     public boolean search(String s){return dfs(s,0,this);}
@@ -1226,7 +1226,7 @@ private boolean dfs(List<List<Integer>> g,int[] state,int node){
     }
 }`},
   {
-    id: 114, name: "Word Search II", topic: "Trie", difficulty: "Hard", pattern: "Trie + DFS Backtracking", approach: "Build trie of words; DFS from each cell following trie; collect words at end nodes.", link: "https://leetcode.com/problems/word-search-ii/", solution: `// Build Trie, then DFS from every cell
+    id: 114, name: "Word Search II", topic: "Trie", difficulty: "Hard", pattern: "Trie + DFS Backtracking", approach: "Build trie of words; DFS from each cell following trie; collect words at end nodes.", link: "https://leetcode.com/problems/word-search-ii/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `// Build Trie, then DFS from every cell
 public List<String> findWords(char[][] board, String[] words) {
     Trie root=new Trie();
     for(String w:words){Trie t=root;for(char c:w.toCharArray()){int i=c-'a';if(t.ch[i]==null)t.ch[i]=new Trie();t=t.ch[i];}t.word=w;}
@@ -1243,7 +1243,7 @@ private void dfs(char[][] b,int i,int j,Trie node,List<String> res){
 }
 class Trie{Trie[] ch=new Trie[26];String word;}`},
   {
-    id: 115, name: "Letter Combinations of a Phone Number", topic: "Backtracking", difficulty: "Medium", pattern: "Backtracking", approach: "Map digits to letters; backtrack adding one char per digit.", link: "https://leetcode.com/problems/letter-combinations-of-a-phone-number/", solution: `public List<String> letterCombinations(String digits) {
+    id: 115, name: "Letter Combinations of a Phone Number", topic: "Backtracking", difficulty: "Medium", pattern: "Backtracking", approach: "Map digits to letters; backtrack adding one char per digit.", link: "https://leetcode.com/problems/letter-combinations-of-a-phone-number/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public List<String> letterCombinations(String digits) {
     List<String> res=new ArrayList<>();
     if(digits.isEmpty()) return res;
     String[] map={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
@@ -1255,7 +1255,7 @@ private void backtrack(String d,int idx,StringBuilder cur,List<String> res,Strin
     for(char c:map[d.charAt(idx)-'0'].toCharArray()){cur.append(c);backtrack(d,idx+1,cur,res,map);cur.deleteCharAt(cur.length()-1);}
 }`},
   {
-    id: 116, name: "Combinations", topic: "Backtracking", difficulty: "Medium", pattern: "Backtracking", approach: "Choose k numbers from 1..n; increment start index to avoid duplicates.", link: "https://leetcode.com/problems/combinations/", solution: `public List<List<Integer>> combine(int n, int k) {
+    id: 116, name: "Combinations", topic: "Backtracking", difficulty: "Medium", pattern: "Backtracking", approach: "Choose k numbers from 1..n; increment start index to avoid duplicates.", link: "https://leetcode.com/problems/combinations/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public List<List<Integer>> combine(int n, int k) {
     List<List<Integer>> res=new ArrayList<>();
     backtrack(n,k,1,new ArrayList<>(),res); return res;
 }
@@ -1264,7 +1264,7 @@ private void backtrack(int n,int k,int start,List<Integer> cur,List<List<Integer
     for(int i=start;i<=n-(k-cur.size())+1;i++){cur.add(i);backtrack(n,k,i+1,cur,res);cur.remove(cur.size()-1);}
 }`},
   {
-    id: 117, name: "Permutations", topic: "Backtracking", difficulty: "Medium", pattern: "Backtracking", approach: "Swap current index with all subsequent indices; recurse; swap back.", link: "https://leetcode.com/problems/permutations/", solution: `public List<List<Integer>> permute(int[] nums) {
+    id: 117, name: "Permutations", topic: "Backtracking", difficulty: "Medium", pattern: "Backtracking", approach: "Swap current index with all subsequent indices; recurse; swap back.", link: "https://leetcode.com/problems/permutations/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public List<List<Integer>> permute(int[] nums) {
     List<List<Integer>> res=new ArrayList<>();
     backtrack(nums,0,res); return res;
 }
@@ -1277,7 +1277,7 @@ private void backtrack(int[] nums,int start,List<List<Integer>> res){
     }
 }`},
   {
-    id: 118, name: "Combination Sum", topic: "Backtracking", difficulty: "Medium", pattern: "Backtracking", approach: "Same as Combination Sum-1 (#77).", link: "https://leetcode.com/problems/combination-sum/", solution: `public List<List<Integer>> combinationSum(int[] c, int target) {
+    id: 118, name: "Combination Sum", topic: "Backtracking", difficulty: "Medium", pattern: "Backtracking", approach: "Same as Combination Sum-1 (#77).", link: "https://leetcode.com/problems/combination-sum/", video: "https://www.youtube.com/watch?v=ZXJ8wUmBYaM", solution: `public List<List<Integer>> combinationSum(int[] c, int target) {
     List<List<Integer>> res=new ArrayList<>();
     backtrack(c,0,target,new ArrayList<>(),res); return res;
 }
@@ -1286,7 +1286,7 @@ private void backtrack(int[] c,int idx,int rem,List<Integer> cur,List<List<Integ
     for(int i=idx;i<c.length;i++){if(c[i]<=rem){cur.add(c[i]);backtrack(c,i,rem-c[i],cur,res);cur.remove(cur.size()-1);}}
 }`},
   {
-    id: 119, name: "N-Queens II", topic: "Backtracking", difficulty: "Hard", pattern: "Backtracking + Constraint Propagation", approach: "Track columns and diagonals as sets; place queens row by row.", link: "https://leetcode.com/problems/n-queens-ii/", solution: `int cnt=0;
+    id: 119, name: "N-Queens II", topic: "Backtracking", difficulty: "Hard", pattern: "Backtracking + Constraint Propagation", approach: "Track columns and diagonals as sets; place queens row by row.", link: "https://leetcode.com/problems/n-queens-ii/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `int cnt=0;
 public int totalNQueens(int n) {
     backtrack(n,0,new HashSet<>(),new HashSet<>(),new HashSet<>());
     return cnt;
@@ -1301,7 +1301,7 @@ private void backtrack(int n,int row,Set<Integer> cols,Set<Integer> d1,Set<Integ
     }
 }`},
   {
-    id: 120, name: "Generate Parentheses", topic: "Backtracking", difficulty: "Medium", pattern: "Backtracking", approach: "Add '(' if open < n; add ')' if close < open.", link: "https://leetcode.com/problems/generate-parentheses/", solution: `public List<String> generateParenthesis(int n) {
+    id: 120, name: "Generate Parentheses", topic: "Backtracking", difficulty: "Medium", pattern: "Backtracking", approach: "Add '(' if open < n; add ')' if close < open.", link: "https://leetcode.com/problems/generate-parentheses/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public List<String> generateParenthesis(int n) {
     List<String> res=new ArrayList<>();
     backtrack(n,0,0,new StringBuilder(),res); return res;
 }
@@ -1311,7 +1311,7 @@ private void backtrack(int n,int open,int close,StringBuilder cur,List<String> r
     if(close<open){cur.append(')');backtrack(n,open,close+1,cur,res);cur.deleteCharAt(cur.length()-1);}
 }`},
   {
-    id: 121, name: "Word Search", topic: "Backtracking", difficulty: "Medium", pattern: "DFS + Backtracking", approach: "DFS from each cell; mark visited, recurse on 4 neighbors, unmark on return.", link: "https://leetcode.com/problems/word-search/", solution: `public boolean exist(char[][] board, String word) {
+    id: 121, name: "Word Search", topic: "Backtracking", difficulty: "Medium", pattern: "DFS + Backtracking", approach: "DFS from each cell; mark visited, recurse on 4 neighbors, unmark on return.", link: "https://leetcode.com/problems/word-search/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public boolean exist(char[][] board, String word) {
     for(int i=0;i<board.length;i++) for(int j=0;j<board[0].length;j++)
         if(dfs(board,word,i,j,0)) return true;
     return false;
@@ -1324,7 +1324,7 @@ private boolean dfs(char[][] b,String w,int i,int j,int idx){
     b[i][j]=t; return res;
 }`},
   {
-    id: 122, name: "Convert Sorted Array to Binary Search Tree", topic: "Divide & Conquer", difficulty: "Easy", pattern: "Divide & Conquer", approach: "Middle element is root; recurse on left and right halves.", link: "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/", solution: `public TreeNode sortedArrayToBST(int[] nums) {
+    id: 122, name: "Convert Sorted Array to Binary Search Tree", topic: "Divide & Conquer", difficulty: "Easy", pattern: "Divide & Conquer", approach: "Middle element is root; recurse on left and right halves.", link: "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public TreeNode sortedArrayToBST(int[] nums) {
     return build(nums,0,nums.length-1);
 }
 private TreeNode build(int[] nums,int l,int r){
@@ -1336,7 +1336,7 @@ private TreeNode build(int[] nums,int l,int r){
     return root;
 }`},
   {
-    id: 123, name: "Sort List", topic: "Divide & Conquer", difficulty: "Medium", pattern: "Merge Sort on LinkedList", approach: "Find middle with slow/fast pointers; split; merge sort both halves.", link: "https://leetcode.com/problems/sort-list/", solution: `public ListNode sortList(ListNode head) {
+    id: 123, name: "Sort List", topic: "Divide & Conquer", difficulty: "Medium", pattern: "Merge Sort on LinkedList", approach: "Find middle with slow/fast pointers; split; merge sort both halves.", link: "https://leetcode.com/problems/sort-list/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public ListNode sortList(ListNode head) {
     if(head==null||head.next==null) return head;
     ListNode mid=getMid(head),right=mid.next; mid.next=null;
     return merge(sortList(head),sortList(right));
@@ -1348,7 +1348,7 @@ private ListNode merge(ListNode a,ListNode b){
     c.next=a!=null?a:b; return d.next;
 }`},
   {
-    id: 124, name: "Construct Quad Tree", topic: "Divide & Conquer", difficulty: "Medium", pattern: "Divide & Conquer", approach: "Check if all values in region are same; if yes, leaf node. Else divide into 4.", link: "https://leetcode.com/problems/construct-quad-tree/", solution: `public Node construct(int[][] grid) { return build(grid,0,0,grid.length); }
+    id: 124, name: "Construct Quad Tree", topic: "Divide & Conquer", difficulty: "Medium", pattern: "Divide & Conquer", approach: "Check if all values in region are same; if yes, leaf node. Else divide into 4.", link: "https://leetcode.com/problems/construct-quad-tree/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public Node construct(int[][] grid) { return build(grid,0,0,grid.length); }
 private Node build(int[][] g,int r,int c,int len){
     if(allSame(g,r,c,len)) return new Node(g[r][c]==1,true);
     int half=len/2;
@@ -1360,7 +1360,7 @@ private boolean allSame(int[][] g,int r,int c,int len){
     return true;
 }`},
   {
-    id: 125, name: "Merge k Sorted Lists", topic: "Divide & Conquer", difficulty: "Hard", pattern: "Divide & Conquer / MinHeap", approach: "Use a MinPriorityQueue; always extract smallest head and add its next.", link: "https://leetcode.com/problems/merge-k-sorted-lists/", solution: `public ListNode mergeKLists(ListNode[] lists) {
+    id: 125, name: "Merge k Sorted Lists", topic: "Divide & Conquer", difficulty: "Hard", pattern: "Divide & Conquer / MinHeap", approach: "Use a MinPriorityQueue; always extract smallest head and add its next.", link: "https://leetcode.com/problems/merge-k-sorted-lists/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public ListNode mergeKLists(ListNode[] lists) {
     PriorityQueue<ListNode> pq=new PriorityQueue<>((a,b)->a.val-b.val);
     for(ListNode l:lists) if(l!=null) pq.offer(l);
     ListNode dummy=new ListNode(0),cur=dummy;
@@ -1371,13 +1371,13 @@ private boolean allSame(int[][] g,int r,int c,int len){
     return dummy.next;
 }`},
   {
-    id: 126, name: "Maximum Subarray", topic: "Kadane's Algorithm", difficulty: "Medium", pattern: "Kadane's Algorithm", approach: "Keep running sum; reset to 0 if negative. Track max.", link: "https://leetcode.com/problems/maximum-subarray/", solution: `public int maxSubArray(int[] nums) {
+    id: 126, name: "Maximum Subarray", topic: "Kadane's Algorithm", difficulty: "Medium", pattern: "Kadane's Algorithm", approach: "Keep running sum; reset to 0 if negative. Track max.", link: "https://leetcode.com/problems/maximum-subarray/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int maxSubArray(int[] nums) {
     int max=nums[0],cur=nums[0];
     for(int i=1;i<nums.length;i++){cur=Math.max(nums[i],cur+nums[i]);max=Math.max(max,cur);}
     return max;
 }`},
   {
-    id: 127, name: "Maximum Sum Circular Subarray", topic: "Kadane's Algorithm", difficulty: "Medium", pattern: "Kadane's + Total Sum", approach: "Max of (normal max subarray) and (total - min subarray). Handle all-negative edge case.", link: "https://leetcode.com/problems/maximum-sum-circular-subarray/", solution: `public int maxSubarraySumCircular(int[] nums) {
+    id: 127, name: "Maximum Sum Circular Subarray", topic: "Kadane's Algorithm", difficulty: "Medium", pattern: "Kadane's + Total Sum", approach: "Max of (normal max subarray) and (total - min subarray). Handle all-negative edge case.", link: "https://leetcode.com/problems/maximum-sum-circular-subarray/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int maxSubarraySumCircular(int[] nums) {
     int maxSum=nums[0],minSum=nums[0],curMax=nums[0],curMin=nums[0],total=nums[0];
     for(int i=1;i<nums.length;i++){
         curMax=Math.max(nums[i],curMax+nums[i]); maxSum=Math.max(maxSum,curMax);
@@ -1387,25 +1387,25 @@ private boolean allSame(int[][] g,int r,int c,int len){
     return maxSum>0?Math.max(maxSum,total-minSum):maxSum;
 }`},
   {
-    id: 128, name: "Search Insert Position", topic: "Binary Search", difficulty: "Easy", pattern: "Binary Search", approach: "Standard binary search; return left when not found (insertion point).", link: "https://leetcode.com/problems/search-insert-position/", solution: `public int searchInsert(int[] nums, int target) {
+    id: 128, name: "Search Insert Position", topic: "Binary Search", difficulty: "Easy", pattern: "Binary Search", approach: "Standard binary search; return left when not found (insertion point).", link: "https://leetcode.com/problems/search-insert-position/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int searchInsert(int[] nums, int target) {
     int l=0,r=nums.length;
     while(l<r){int m=l+(r-l)/2;if(nums[m]<target)l=m+1;else r=m;}
     return l;
 }`},
   {
-    id: 129, name: "Search a 2D Matrix", topic: "Binary Search", difficulty: "Medium", pattern: "Binary Search on Flattened Matrix", approach: "Treat matrix as sorted 1D array; index row=mid/n, col=mid%n.", link: "https://leetcode.com/problems/search-a-2d-matrix/", solution: `public boolean searchMatrix(int[][] m, int target) {
+    id: 129, name: "Search a 2D Matrix", topic: "Binary Search", difficulty: "Medium", pattern: "Binary Search on Flattened Matrix", approach: "Treat matrix as sorted 1D array; index row=mid/n, col=mid%n.", link: "https://leetcode.com/problems/search-a-2d-matrix/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public boolean searchMatrix(int[][] m, int target) {
     int r=m.length,c=m[0].length,l=0,hi=r*c-1;
     while(l<=hi){int mid=l+(hi-l)/2,v=m[mid/c][mid%c];if(v==target)return true;else if(v<target)l=mid+1;else hi=mid-1;}
     return false;
 }`},
   {
-    id: 130, name: "Find Peak Element", topic: "Binary Search", difficulty: "Medium", pattern: "Binary Search", approach: "Move to side with larger neighbor; peak guaranteed to exist.", link: "https://leetcode.com/problems/find-peak-element/", solution: `public int findPeakElement(int[] nums) {
+    id: 130, name: "Find Peak Element", topic: "Binary Search", difficulty: "Medium", pattern: "Binary Search", approach: "Move to side with larger neighbor; peak guaranteed to exist.", link: "https://leetcode.com/problems/find-peak-element/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int findPeakElement(int[] nums) {
     int l=0,r=nums.length-1;
     while(l<r){int m=l+(r-l)/2;if(nums[m]<nums[m+1])l=m+1;else r=m;}
     return l;
 }`},
   {
-    id: 131, name: "Search in Rotated Sorted Array", topic: "Binary Search", difficulty: "Medium", pattern: "Binary Search", approach: "Determine which half is sorted; check if target lies in sorted half.", link: "https://leetcode.com/problems/search-in-rotated-sorted-array/", solution: `public int search(int[] nums, int target) {
+    id: 131, name: "Search in Rotated Sorted Array", topic: "Binary Search", difficulty: "Medium", pattern: "Binary Search", approach: "Determine which half is sorted; check if target lies in sorted half.", link: "https://leetcode.com/problems/search-in-rotated-sorted-array/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int search(int[] nums, int target) {
     int l=0,r=nums.length-1;
     while(l<=r){
         int m=l+(r-l)/2;
@@ -1416,19 +1416,19 @@ private boolean allSame(int[][] g,int r,int c,int len){
     return -1;
 }`},
   {
-    id: 132, name: "Find First and Last Position of Element in Sorted Array", topic: "Binary Search", difficulty: "Medium", pattern: "Binary Search (Lower/Upper Bound)", approach: "Two binary searches: one for left bound, one for right bound.", link: "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/", solution: `public int[] searchRange(int[] nums, int target) {
+    id: 132, name: "Find First and Last Position of Element in Sorted Array", topic: "Binary Search", difficulty: "Medium", pattern: "Binary Search (Lower/Upper Bound)", approach: "Two binary searches: one for left bound, one for right bound.", link: "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int[] searchRange(int[] nums, int target) {
     return new int[]{lower(nums,target),upper(nums,target)};
 }
 private int lower(int[] n,int t){int l=0,r=n.length;while(l<r){int m=l+(r-l)/2;if(n[m]<t)l=m+1;else r=m;}return l<n.length&&n[l]==t?l:-1;}
 private int upper(int[] n,int t){int l=0,r=n.length;while(l<r){int m=l+(r-l)/2;if(n[m]<=t)l=m+1;else r=m;}return l>0&&n[l-1]==t?l-1:-1;}`},
   {
-    id: 133, name: "Find Minimum in Rotated Sorted Array", topic: "Binary Search", difficulty: "Medium", pattern: "Binary Search", approach: "If mid > right, min is in right half; else left half.", link: "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/", solution: `public int findMin(int[] nums) {
+    id: 133, name: "Find Minimum in Rotated Sorted Array", topic: "Binary Search", difficulty: "Medium", pattern: "Binary Search", approach: "If mid > right, min is in right half; else left half.", link: "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int findMin(int[] nums) {
     int l=0,r=nums.length-1;
     while(l<r){int m=l+(r-l)/2;if(nums[m]>nums[r])l=m+1;else r=m;}
     return nums[l];
 }`},
   {
-    id: 134, name: "Median of Two Sorted Arrays", topic: "Binary Search", difficulty: "Hard", pattern: "Binary Search on Partition", approach: "Binary search on smaller array; partition both so left halves have (m+n)/2 elements.", link: "https://leetcode.com/problems/median-of-two-sorted-arrays/", solution: `public double findMedianSortedArrays(int[] A, int[] B) {
+    id: 134, name: "Median of Two Sorted Arrays", topic: "Binary Search", difficulty: "Hard", pattern: "Binary Search on Partition", approach: "Binary search on smaller array; partition both so left halves have (m+n)/2 elements.", link: "https://leetcode.com/problems/median-of-two-sorted-arrays/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public double findMedianSortedArrays(int[] A, int[] B) {
     if(A.length>B.length) return findMedianSortedArrays(B,A);
     int m=A.length,n=B.length,lo=0,hi=m;
     while(lo<=hi){
@@ -1443,13 +1443,13 @@ private int upper(int[] n,int t){int l=0,r=n.length;while(l<r){int m=l+(r-l)/2;i
     return 0;
 }`},
   {
-    id: 135, name: "Kth Largest Element in an Array", topic: "Heap", difficulty: "Medium", pattern: "MinHeap of size K", approach: "Maintain min-heap of size k; root is kth largest.", link: "https://leetcode.com/problems/kth-largest-element-in-an-array/", solution: `public int findKthLargest(int[] nums, int k) {
+    id: 135, name: "Kth Largest Element in an Array", topic: "Heap", difficulty: "Medium", pattern: "MinHeap of size K", approach: "Maintain min-heap of size k; root is kth largest.", link: "https://leetcode.com/problems/kth-largest-element-in-an-array/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int findKthLargest(int[] nums, int k) {
     PriorityQueue<Integer> pq=new PriorityQueue<>();
     for(int n:nums){pq.offer(n);if(pq.size()>k)pq.poll();}
     return pq.peek();
 }`},
   {
-    id: 136, name: "IPO", topic: "Heap", difficulty: "Hard", pattern: "Greedy + Two Heaps", approach: "Sort by capital; unlock projects affordable now (minHeap by capital); greedily pick max profit (maxHeap).", link: "https://leetcode.com/problems/ipo/", solution: `public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
+    id: 136, name: "IPO", topic: "Heap", difficulty: "Hard", pattern: "Greedy + Two Heaps", approach: "Sort by capital; unlock projects affordable now (minHeap by capital); greedily pick max profit (maxHeap).", link: "https://leetcode.com/problems/ipo/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
     int n=profits.length;
     int[][] projects=new int[n][2];
     for(int i=0;i<n;i++) projects[i]=new int[]{capital[i],profits[i]};
@@ -1464,7 +1464,7 @@ private int upper(int[] n,int t){int l=0,r=n.length;while(l<r){int m=l+(r-l)/2;i
     return w;
 }`},
   {
-    id: 137, name: "Find K Pairs with Smallest Sums", topic: "Heap", difficulty: "Medium", pattern: "MinHeap", approach: "Start with (0,0); push (i,j+1) and (i+1,0) when (i,j) is popped.", link: "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/", solution: `public List<int[]> kSmallestPairs(int[] n1, int[] n2, int k) {
+    id: 137, name: "Find K Pairs with Smallest Sums", topic: "Heap", difficulty: "Medium", pattern: "MinHeap", approach: "Start with (0,0); push (i,j+1) and (i+1,0) when (i,j) is popped.", link: "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public List<int[]> kSmallestPairs(int[] n1, int[] n2, int k) {
     PriorityQueue<int[]> pq=new PriorityQueue<>((a,b)->(n1[a[0]]+n2[a[1]])-(n1[b[0]]+n2[b[1]]));
     pq.offer(new int[]{0,0});
     List<int[]> res=new ArrayList<>();
@@ -1476,7 +1476,7 @@ private int upper(int[] n,int t){int l=0,r=n.length;while(l<r){int m=l+(r-l)/2;i
     return res;
 }`},
   {
-    id: 138, name: "Find Median from Data Stream", topic: "Heap", difficulty: "Hard", pattern: "Two Heaps (MaxHeap + MinHeap)", approach: "MaxHeap for lower half, MinHeap for upper half. Balance sizes after each add.", link: "https://leetcode.com/problems/find-median-from-data-stream/", solution: `class MedianFinder {
+    id: 138, name: "Find Median from Data Stream", topic: "Heap", difficulty: "Hard", pattern: "Two Heaps (MaxHeap + MinHeap)", approach: "MaxHeap for lower half, MinHeap for upper half. Balance sizes after each add.", link: "https://leetcode.com/problems/find-median-from-data-stream/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `class MedianFinder {
     PriorityQueue<Integer> lo=new PriorityQueue<>(Collections.reverseOrder()), hi=new PriorityQueue<>();
     public void addNum(int num) {
         lo.offer(num); hi.offer(lo.poll());
@@ -1487,7 +1487,7 @@ private int upper(int[] n,int t){int l=0,r=n.length;while(l<r){int m=l+(r-l)/2;i
     }
 }`},
   {
-    id: 139, name: "Add Binary", topic: "Bit Manipulation", difficulty: "Easy", pattern: "Simulation / Bit Ops", approach: "Process from end; carry propagation.", link: "https://leetcode.com/problems/add-binary/", solution: `public String addBinary(String a, String b) {
+    id: 139, name: "Add Binary", topic: "Bit Manipulation", difficulty: "Easy", pattern: "Simulation / Bit Ops", approach: "Process from end; carry propagation.", link: "https://leetcode.com/problems/add-binary/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public String addBinary(String a, String b) {
     StringBuilder sb=new StringBuilder(); int i=a.length()-1,j=b.length()-1,carry=0;
     while(i>=0||j>=0||carry>0){
         int s=(i>=0?a.charAt(i--)-'0':0)+(j>=0?b.charAt(j--)-'0':0)+carry;
@@ -1496,44 +1496,44 @@ private int upper(int[] n,int t){int l=0,r=n.length;while(l<r){int m=l+(r-l)/2;i
     return sb.reverse().toString();
 }`},
   {
-    id: 140, name: "Reverse Bits", topic: "Bit Manipulation", difficulty: "Easy", pattern: "Bit Manipulation", approach: "For each of 32 bits, shift result left and OR with current LSB.", link: "https://leetcode.com/problems/reverse-bits/", solution: `public int reverseBits(int n) {
+    id: 140, name: "Reverse Bits", topic: "Bit Manipulation", difficulty: "Easy", pattern: "Bit Manipulation", approach: "For each of 32 bits, shift result left and OR with current LSB.", link: "https://leetcode.com/problems/reverse-bits/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int reverseBits(int n) {
     int res=0;
     for(int i=0;i<32;i++){res=(res<<1)|(n&1);n>>=1;}
     return res;
 }`},
   {
-    id: 141, name: "Number of 1 Bits", topic: "Bit Manipulation", difficulty: "Easy", pattern: "Bit Manipulation", approach: "n & (n-1) clears the lowest set bit. Count iterations.", link: "https://leetcode.com/problems/number-of-1-bits/", solution: `public int hammingWeight(int n) {
+    id: 141, name: "Number of 1 Bits", topic: "Bit Manipulation", difficulty: "Easy", pattern: "Bit Manipulation", approach: "n & (n-1) clears the lowest set bit. Count iterations.", link: "https://leetcode.com/problems/number-of-1-bits/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int hammingWeight(int n) {
     int cnt=0;
     while(n!=0){n&=(n-1);cnt++;}
     return cnt;
 }`},
   {
-    id: 142, name: "Single Number", topic: "Bit Manipulation", difficulty: "Easy", pattern: "XOR", approach: "XOR all numbers; duplicates cancel out, leaving the single number.", link: "https://leetcode.com/problems/single-number/", solution: `public int singleNumber(int[] nums) {
+    id: 142, name: "Single Number", topic: "Bit Manipulation", difficulty: "Easy", pattern: "XOR", approach: "XOR all numbers; duplicates cancel out, leaving the single number.", link: "https://leetcode.com/problems/single-number/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int singleNumber(int[] nums) {
     int res=0;
     for(int n:nums) res^=n;
     return res;
 }`},
   {
-    id: 143, name: "Single Number II", topic: "Bit Manipulation", difficulty: "Medium", pattern: "Bit Counting", approach: "For each bit, count 1s mod 3; remaining 1s form the answer.", link: "https://leetcode.com/problems/single-number-ii/", solution: `public int singleNumber(int[] nums) {
+    id: 143, name: "Single Number II", topic: "Bit Manipulation", difficulty: "Medium", pattern: "Bit Counting", approach: "For each bit, count 1s mod 3; remaining 1s form the answer.", link: "https://leetcode.com/problems/single-number-ii/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int singleNumber(int[] nums) {
     int ones=0,twos=0;
     for(int n:nums){ones=(ones^n)&~twos;twos=(twos^n)&~ones;}
     return ones;
 }`},
   {
-    id: 144, name: "Bitwise AND of Numbers Range", topic: "Bit Manipulation", difficulty: "Medium", pattern: "Common Prefix", approach: "Find common bit prefix of left and right by right-shifting until equal.", link: "https://leetcode.com/problems/bitwise-and-of-numbers-range/", solution: `public int rangeBitwiseAnd(int left, int right) {
+    id: 144, name: "Bitwise AND of Numbers Range", topic: "Bit Manipulation", difficulty: "Medium", pattern: "Common Prefix", approach: "Find common bit prefix of left and right by right-shifting until equal.", link: "https://leetcode.com/problems/bitwise-and-of-numbers-range/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int rangeBitwiseAnd(int left, int right) {
     int shift=0;
     while(left!=right){left>>=1;right>>=1;shift++;}
     return left<<shift;
 }`},
   {
-    id: 145, name: "Palindrome Number", topic: "Math", difficulty: "Easy", pattern: "Math", approach: "Negative or trailing zero → false. Reverse second half; compare.", link: "https://leetcode.com/problems/palindrome-number/", solution: `public boolean isPalindrome(int x) {
+    id: 145, name: "Palindrome Number", topic: "Math", difficulty: "Easy", pattern: "Math", approach: "Negative or trailing zero → false. Reverse second half; compare.", link: "https://leetcode.com/problems/palindrome-number/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public boolean isPalindrome(int x) {
     if(x<0||(x%10==0&&x!=0)) return false;
     int rev=0;
     while(x>rev){rev=rev*10+x%10;x/=10;}
     return x==rev||x==rev/10;
 }`},
   {
-    id: 146, name: "Plus One", topic: "Math", difficulty: "Easy", pattern: "Simulation", approach: "Add one from end; handle carry; if all 9s, prepend 1.", link: "https://leetcode.com/problems/plus-one/", solution: `public int[] plusOne(int[] digits) {
+    id: 146, name: "Plus One", topic: "Math", difficulty: "Easy", pattern: "Simulation", approach: "Add one from end; handle carry; if all 9s, prepend 1.", link: "https://leetcode.com/problems/plus-one/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int[] plusOne(int[] digits) {
     for(int i=digits.length-1;i>=0;i--){
         if(digits[i]<9){digits[i]++;return digits;}
         digits[i]=0;
@@ -1541,26 +1541,26 @@ private int upper(int[] n,int t){int l=0,r=n.length;while(l<r){int m=l+(r-l)/2;i
     int[] res=new int[digits.length+1]; res[0]=1; return res;
 }`},
   {
-    id: 147, name: "Factorial Trailing Zeroes", topic: "Math", difficulty: "Medium", pattern: "Math", approach: "Count factors of 5 (each 5 contributes one trailing zero).", link: "https://leetcode.com/problems/factorial-trailing-zeroes/", solution: `public int trailingZeroes(int n) {
+    id: 147, name: "Factorial Trailing Zeroes", topic: "Math", difficulty: "Medium", pattern: "Math", approach: "Count factors of 5 (each 5 contributes one trailing zero).", link: "https://leetcode.com/problems/factorial-trailing-zeroes/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int trailingZeroes(int n) {
     int cnt=0;
     while(n>=5){n/=5;cnt+=n;}
     return cnt;
 }`},
   {
-    id: 148, name: "Sqrt(x)", topic: "Math", difficulty: "Easy", pattern: "Binary Search", approach: "Binary search on [0, x]; find largest m where m*m <= x.", link: "https://leetcode.com/problems/sqrtx/", solution: `public int mySqrt(int x) {
+    id: 148, name: "Sqrt(x)", topic: "Math", difficulty: "Easy", pattern: "Binary Search", approach: "Binary search on [0, x]; find largest m where m*m <= x.", link: "https://leetcode.com/problems/sqrtx/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int mySqrt(int x) {
     long l=0,r=x;
     while(l<r){long m=l+(r-l+1)/2;if(m*m<=x)l=m;else r=m-1;}
     return (int)l;
 }`},
   {
-    id: 149, name: "Pow(x, n)", topic: "Math", difficulty: "Medium", pattern: "Fast Exponentiation", approach: "Divide n by 2 each step; square x. Handle negative n.", link: "https://leetcode.com/problems/powx-n/", solution: `public double myPow(double x, int n) {
+    id: 149, name: "Pow(x, n)", topic: "Math", difficulty: "Medium", pattern: "Fast Exponentiation", approach: "Divide n by 2 each step; square x. Handle negative n.", link: "https://leetcode.com/problems/powx-n/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public double myPow(double x, int n) {
     long N=n; if(N<0){x=1/x;N=-N;}
     double res=1;
     while(N>0){if((N&1)==1)res*=x;x*=x;N>>=1;}
     return res;
 }`},
   {
-    id: 150, name: "Max Points on a Line", topic: "Math", difficulty: "Hard", pattern: "HashMap + GCD", approach: "For each point, map slope (as reduced fraction) to count. Max + 1 = points on line.", link: "https://leetcode.com/problems/max-points-on-a-line/", solution: `public int maxPoints(int[][] points) {
+    id: 150, name: "Max Points on a Line", topic: "Math", difficulty: "Hard", pattern: "HashMap + GCD", approach: "For each point, map slope (as reduced fraction) to count. Max + 1 = points on line.", link: "https://leetcode.com/problems/max-points-on-a-line/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int maxPoints(int[][] points) {
     int n=points.length,res=1;
     for(int i=0;i<n;i++){
         Map<String,Integer> map=new HashMap<>();
@@ -1578,20 +1578,20 @@ private int upper(int[] n,int t){int l=0,r=n.length;while(l<r){int m=l+(r-l)/2;i
 }
 private int gcd(int a,int b){return b==0?a:gcd(b,a%b);}`},
   {
-    id: 151, name: "Climbing Stairs", topic: "1D DP", difficulty: "Easy", pattern: "DP (Fibonacci)", approach: "dp[i] = dp[i-1] + dp[i-2]. Base: dp[1]=1, dp[2]=2.", link: "https://leetcode.com/problems/climbing-stairs/", solution: `public int climbStairs(int n) {
+    id: 151, name: "Climbing Stairs", topic: "1D DP", difficulty: "Easy", pattern: "DP (Fibonacci)", approach: "dp[i] = dp[i-1] + dp[i-2]. Base: dp[1]=1, dp[2]=2.", link: "https://leetcode.com/problems/climbing-stairs/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int climbStairs(int n) {
     if(n<=2) return n;
     int a=1,b=2;
     for(int i=3;i<=n;i++){int c=a+b;a=b;b=c;}
     return b;
 }`},
   {
-    id: 152, name: "House Robber", topic: "1D DP", difficulty: "Medium", pattern: "DP", approach: "dp[i] = max(dp[i-1], dp[i-2] + nums[i]).", link: "https://leetcode.com/problems/house-robber/", solution: `public int rob(int[] nums) {
+    id: 152, name: "House Robber", topic: "1D DP", difficulty: "Medium", pattern: "DP", approach: "dp[i] = max(dp[i-1], dp[i-2] + nums[i]).", link: "https://leetcode.com/problems/house-robber/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int rob(int[] nums) {
     int prev2=0,prev1=0;
     for(int n:nums){int cur=Math.max(prev1,prev2+n);prev2=prev1;prev1=cur;}
     return prev1;
 }`},
   {
-    id: 153, name: "Word Break", topic: "1D DP", difficulty: "Medium", pattern: "DP + Trie", approach: "dp[i] = true if any dp[j] && word(j..i) in dictionary.", link: "https://leetcode.com/problems/word-break/", solution: `public boolean wordBreak(String s, List<String> wordDict) {
+    id: 153, name: "Word Break", topic: "1D DP", difficulty: "Medium", pattern: "DP + Trie", approach: "dp[i] = true if any dp[j] && word(j..i) in dictionary.", link: "https://leetcode.com/problems/word-break/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public boolean wordBreak(String s, List<String> wordDict) {
     Set<String> set=new HashSet<>(wordDict);
     boolean[] dp=new boolean[s.length()+1]; dp[0]=true;
     for(int i=1;i<=s.length();i++)
@@ -1600,13 +1600,13 @@ private int gcd(int a,int b){return b==0?a:gcd(b,a%b);}`},
     return dp[s.length()];
 }`},
   {
-    id: 154, name: "Coin Change", topic: "1D DP", difficulty: "Medium", pattern: "Unbounded Knapsack DP", approach: "dp[amount] = min coins; dp[i] = min(dp[i], dp[i-coin]+1).", link: "https://leetcode.com/problems/coin-change/", solution: `public int coinChange(int[] coins, int amount) {
+    id: 154, name: "Coin Change", topic: "1D DP", difficulty: "Medium", pattern: "Unbounded Knapsack DP", approach: "dp[amount] = min coins; dp[i] = min(dp[i], dp[i-coin]+1).", link: "https://leetcode.com/problems/coin-change/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int coinChange(int[] coins, int amount) {
     int[] dp=new int[amount+1]; Arrays.fill(dp,amount+1); dp[0]=0;
     for(int i=1;i<=amount;i++) for(int c:coins) if(c<=i) dp[i]=Math.min(dp[i],dp[i-c]+1);
     return dp[amount]>amount?-1:dp[amount];
 }`},
   {
-    id: 155, name: "Longest Increasing Subsequence", topic: "1D DP", difficulty: "Medium", pattern: "DP / Binary Search (Patience Sort)", approach: "Maintain tails array; binary search for position to place each element. O(n log n).", link: "https://leetcode.com/problems/longest-increasing-subsequence/", solution: `public int lengthOfLIS(int[] nums) {
+    id: 155, name: "Longest Increasing Subsequence", topic: "1D DP", difficulty: "Medium", pattern: "DP / Binary Search (Patience Sort)", approach: "Maintain tails array; binary search for position to place each element. O(n log n).", link: "https://leetcode.com/problems/longest-increasing-subsequence/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int lengthOfLIS(int[] nums) {
     List<Integer> tails=new ArrayList<>();
     for(int n:nums){
         int lo=0,hi=tails.size();
@@ -1616,13 +1616,13 @@ private int gcd(int a,int b){return b==0?a:gcd(b,a%b);}`},
     return tails.size();
 }`},
   {
-    id: 156, name: "Triangle", topic: "Multidimensional DP", difficulty: "Medium", pattern: "DP (Bottom-up)", approach: "Start from bottom row; dp[j] = min(dp[j], dp[j+1]) + triangle[i][j].", link: "https://leetcode.com/problems/triangle/", solution: `public int minimumTotal(List<List<Integer>> t) {
+    id: 156, name: "Triangle", topic: "Multidimensional DP", difficulty: "Medium", pattern: "DP (Bottom-up)", approach: "Start from bottom row; dp[j] = min(dp[j], dp[j+1]) + triangle[i][j].", link: "https://leetcode.com/problems/triangle/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int minimumTotal(List<List<Integer>> t) {
     int n=t.size(); int[] dp=new int[n+1];
     for(int i=n-1;i>=0;i--) for(int j=0;j<=i;j++) dp[j]=Math.min(dp[j],dp[j+1])+t.get(i).get(j);
     return dp[0];
 }`},
   {
-    id: 157, name: "Minimum Path Sum", topic: "Multidimensional DP", difficulty: "Medium", pattern: "2D DP", approach: "dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j].", link: "https://leetcode.com/problems/minimum-path-sum/", solution: `public int minPathSum(int[][] grid) {
+    id: 157, name: "Minimum Path Sum", topic: "Multidimensional DP", difficulty: "Medium", pattern: "2D DP", approach: "dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j].", link: "https://leetcode.com/problems/minimum-path-sum/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int minPathSum(int[][] grid) {
     int m=grid.length,n=grid[0].length;
     for(int i=0;i<m;i++) for(int j=0;j<n;j++){
         if(i==0&&j==0) continue;
@@ -1633,7 +1633,7 @@ private int gcd(int a,int b){return b==0?a:gcd(b,a%b);}`},
     return grid[m-1][n-1];
 }`},
   {
-    id: 158, name: "Unique Paths II", topic: "Multidimensional DP", difficulty: "Medium", pattern: "2D DP", approach: "If obstacle, dp=0. Else dp[i][j] = dp[i-1][j]+dp[i][j-1].", link: "https://leetcode.com/problems/unique-paths-ii/", solution: `public int uniquePathsWithObstacles(int[][] g) {
+    id: 158, name: "Unique Paths II", topic: "Multidimensional DP", difficulty: "Medium", pattern: "2D DP", approach: "If obstacle, dp=0. Else dp[i][j] = dp[i-1][j]+dp[i][j-1].", link: "https://leetcode.com/problems/unique-paths-ii/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int uniquePathsWithObstacles(int[][] g) {
     int m=g.length,n=g[0].length; int[] dp=new int[n]; dp[0]=g[0][0]==0?1:0;
     for(int i=0;i<m;i++) for(int j=0;j<n;j++){
         if(g[i][j]==1){dp[j]=0;continue;}
@@ -1642,7 +1642,7 @@ private int gcd(int a,int b){return b==0?a:gcd(b,a%b);}`},
     return dp[n-1];
 }`},
   {
-    id: 159, name: "Longest Palindromic Substring", topic: "Multidimensional DP", difficulty: "Medium", pattern: "Expand Around Center", approach: "Expand around each center (odd/even); track max length.", link: "https://leetcode.com/problems/longest-palindromic-substring/", solution: `public String longestPalindrome(String s) {
+    id: 159, name: "Longest Palindromic Substring", topic: "Multidimensional DP", difficulty: "Medium", pattern: "Expand Around Center", approach: "Expand around each center (odd/even); track max length.", link: "https://leetcode.com/problems/longest-palindromic-substring/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public String longestPalindrome(String s) {
     int start=0,len=1;
     for(int i=0;i<s.length();i++){
         int l1=expand(s,i,i),l2=expand(s,i,i+1);
@@ -1653,7 +1653,7 @@ private int gcd(int a,int b){return b==0?a:gcd(b,a%b);}`},
 }
 private int expand(String s,int l,int r){while(l>=0&&r<s.length()&&s.charAt(l)==s.charAt(r)){l--;r++;}return r-l-1;}`},
   {
-    id: 160, name: "Interleaving String", topic: "Multidimensional DP", difficulty: "Medium", pattern: "2D DP", approach: "dp[i][j] = can form s3[0..i+j] from s1[0..i] and s2[0..j].", link: "https://leetcode.com/problems/interleaving-string/", solution: `public boolean isInterleave(String s1, String s2, String s3) {
+    id: 160, name: "Interleaving String", topic: "Multidimensional DP", difficulty: "Medium", pattern: "2D DP", approach: "dp[i][j] = can form s3[0..i+j] from s1[0..i] and s2[0..j].", link: "https://leetcode.com/problems/interleaving-string/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public boolean isInterleave(String s1, String s2, String s3) {
     int m=s1.length(),n=s2.length();
     if(m+n!=s3.length()) return false;
     boolean[] dp=new boolean[n+1]; dp[0]=true;
@@ -1666,7 +1666,7 @@ private int expand(String s,int l,int r){while(l>=0&&r<s.length()&&s.charAt(l)==
     return dp[n];
 }`},
   {
-    id: 161, name: "Edit Distance", topic: "Multidimensional DP", difficulty: "Medium", pattern: "2D DP", approach: "dp[i][j] = min edits to convert word1[0..i] to word2[0..j].", link: "https://leetcode.com/problems/edit-distance/", solution: `public int minDistance(String w1, String w2) {
+    id: 161, name: "Edit Distance", topic: "Multidimensional DP", difficulty: "Medium", pattern: "2D DP", approach: "dp[i][j] = min edits to convert word1[0..i] to word2[0..j].", link: "https://leetcode.com/problems/edit-distance/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int minDistance(String w1, String w2) {
     int m=w1.length(),n=w2.length(); int[] dp=new int[n+1];
     for(int j=0;j<=n;j++) dp[j]=j;
     for(int i=1;i<=m;i++){
@@ -1676,13 +1676,13 @@ private int expand(String s,int l,int r){while(l>=0&&r<s.length()&&s.charAt(l)==
     return dp[n];
 }`},
   {
-    id: 162, name: "Best Time to Buy and Sell Stock III", topic: "Multidimensional DP", difficulty: "Hard", pattern: "State Machine DP", approach: "Track 4 states: buy1, sell1, buy2, sell2.", link: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/", solution: `public int maxProfit(int[] prices) {
+    id: 162, name: "Best Time to Buy and Sell Stock III", topic: "Multidimensional DP", difficulty: "Hard", pattern: "State Machine DP", approach: "Track 4 states: buy1, sell1, buy2, sell2.", link: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/", video: "https://www.youtube.com/watch?v=gWaf46b7xcY", solution: `public int maxProfit(int[] prices) {
     int b1=Integer.MIN_VALUE,s1=0,b2=Integer.MIN_VALUE,s2=0;
     for(int p:prices){b1=Math.max(b1,-p);s1=Math.max(s1,b1+p);b2=Math.max(b2,s1-p);s2=Math.max(s2,b2+p);}
     return s2;
 }`},
   {
-    id: 163, name: "Best Time to Buy and Sell Stock IV", topic: "Multidimensional DP", difficulty: "Hard", pattern: "State Machine DP", approach: "Track buy[k] and sell[k] for k transactions. Generalize III.", link: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/", solution: `public int maxProfit(int k, int[] prices) {
+    id: 163, name: "Best Time to Buy and Sell Stock IV", topic: "Multidimensional DP", difficulty: "Hard", pattern: "State Machine DP", approach: "Track buy[k] and sell[k] for k transactions. Generalize III.", link: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/", video: "https://www.youtube.com/watch?v=gWaf46b7xcY", solution: `public int maxProfit(int k, int[] prices) {
     int[] buy=new int[k],sell=new int[k];
     Arrays.fill(buy,Integer.MIN_VALUE);
     for(int p:prices)
@@ -1693,7 +1693,7 @@ private int expand(String s,int l,int r){while(l>=0&&r<s.length()&&s.charAt(l)==
     return sell[k-1];
 }`},
   {
-    id: 164, name: "Maximal Square", topic: "Multidimensional DP", difficulty: "Medium", pattern: "2D DP", approach: "dp[i][j] = min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1 if matrix[i][j]='1'.", link: "https://leetcode.com/problems/maximal-square/", solution: `public int maximalSquare(char[][] m) {
+    id: 164, name: "Maximal Square", topic: "Multidimensional DP", difficulty: "Medium", pattern: "2D DP", approach: "dp[i][j] = min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1 if matrix[i][j]='1'.", link: "https://leetcode.com/problems/maximal-square/", video: "https://www.youtube.com/playlist?list=PLoDervMHdCDJPh4z8dx6PIq5aee8yxV5C", solution: `public int maximalSquare(char[][] m) {
     int max=0,prev=0; int[] dp=new int[m[0].length+1];
     for(int i=1;i<=m.length;i++) for(int j=1;j<=m[0].length;j++){
         int t=dp[j];
@@ -1836,13 +1836,20 @@ export default function DSAPage() {
               {p.id === selected && (
                 <div style={{ marginTop: 12, borderTop: "0.5px solid var(--color-border-tertiary)", paddingTop: 12 }}
                   onClick={e => e.stopPropagation()}>
-                  <div style={{ display: "flex", gap: 8, marginBottom: 10 }}>
+                  <div style={{ display: "flex", gap: 8, marginBottom: 10, flexWrap: "wrap" }}>
                     {["solution", "approach"].map(t => (
                       <button key={t} onClick={() => setTab(t)}
                         style={{ fontSize: 12, padding: "4px 12px", borderRadius: 7, border: "0.5px solid var(--color-border-secondary)", background: tab === t ? "#3b82f6" : "var(--color-background-secondary)", color: tab === t ? "#fff" : "var(--color-text-primary)", cursor: "pointer", fontWeight: tab === t ? 500 : 400 }}>
                         {t === "solution" ? "Java Solution" : "Approach & Pattern"}
                       </button>
                     ))}
+                    {p.video && (
+                      <a href={p.video} target="_blank" rel="noopener noreferrer"
+                        onClick={e => e.stopPropagation()}
+                        style={{ fontSize: 12, padding: "4px 12px", borderRadius: 7, border: "0.5px solid var(--color-border-secondary)", background: "var(--color-background-secondary)", color: "var(--color-text-primary)", cursor: "pointer", fontWeight: 400, textDecoration: "none", display: "inline-flex", alignItems: "center" }}>
+                        Video Solution
+                      </a>
+                    )}
                   </div>
                   {tab === "solution" ? (
                     <pre style={{ margin: 0, fontSize: 12, lineHeight: 1.6, background: "var(--color-background-secondary)", borderRadius: 8, padding: 14, overflowX: "auto", fontFamily: "var(--font-mono)", color: "var(--color-text-primary)", whiteSpace: "pre-wrap", wordBreak: "break-word" }}>
