@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
-import { 
-  collection, 
-  addDoc, 
-  updateDoc, 
-  deleteDoc, 
-  doc, 
-  query, 
-  orderBy, 
+import {
+  collection,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+  setDoc,
+  query,
+  orderBy,
   onSnapshot,
-  serverTimestamp 
+  serverTimestamp
 } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
@@ -31,8 +32,8 @@ export function useInterviewQuestions() {
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const questionsList = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
+        ...doc.data(),
+        id: doc.id
       }));
       setQuestions(questionsList);
       setLoading(false);
@@ -46,7 +47,7 @@ export function useInterviewQuestions() {
     if (!currentUser) return;
 
     const starredRef = collection(db, 'users', currentUser.uid, 'starredQuestions');
-    
+
     const unsubscribe = onSnapshot(starredRef, (snapshot) => {
       const starred = {};
       snapshot.docs.forEach(doc => {
@@ -113,13 +114,13 @@ export function useInterviewQuestions() {
 
     try {
       const starRef = doc(db, 'users', currentUser.uid, 'starredQuestions', questionId);
-      
+
       if (starredQuestions[questionId]) {
         // Remove star
         await deleteDoc(starRef);
       } else {
         // Add star
-        await addDoc(starRef, {
+        await setDoc(starRef, {
           questionId,
           starredAt: serverTimestamp()
         });
@@ -153,7 +154,7 @@ export function useInterviewQuestions() {
     try {
       const questionRef = doc(db, 'interviewQuestions', questionId);
       const question = questions.find(q => q.id === questionId);
-      
+
       await updateDoc(questionRef, {
         reviewCount: (question?.reviewCount || 0) + 1,
         lastReviewed: serverTimestamp()
