@@ -9,7 +9,8 @@ const AVAILABLE_MODELS = [
   { value: '', label: 'Default (Worker)' },
   { value: 'gemini-3.1-flash-lite-preview', label: 'Gemini 3.1 Flash' },
   { value: 'gemini-2.5-flash-lite', label: 'Gemini 2.5 lite' },
-  { value: 'gemini-3.1-pro-preview', label: 'Gemini 3.1 pro' }
+  { value: 'gemma-4-26b', label: 'Gemma 4 26b' },
+  { value: 'gemma-4-31b', label: 'Gemma 4 31b' }
 ];
 
 export default function Chatbot({ onAddQuestion }) {
