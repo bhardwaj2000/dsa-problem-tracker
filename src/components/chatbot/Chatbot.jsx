@@ -5,10 +5,11 @@ import ChatMessage from './ChatMessage';
 import AddQuestionModal from '../interview/AddQuestionModal';
 
 const AVAILABLE_MODELS = [
-  { value: 'gemma-3-27b-it', label: 'Gemma 3 27B' },
+  { value: 'gemini-2.5-flash', label: 'Gemini 2.5' },
   { value: '', label: 'Default (Worker)' },
   { value: 'gemini-3.1-flash-lite-preview', label: 'Gemini 3.1 Flash' },
-  { value: 'gemma-4-31b-it', label: 'Gemma 4 31B' }
+  { value: 'gemini-2.5-flash-lite', label: 'Gemini 2.5 lite' },
+  { value: 'gemini-3.1-pro-preview', label: 'Gemini 3.1 pro' }
 ];
 
 export default function Chatbot({ onAddQuestion }) {
